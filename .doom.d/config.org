@@ -1,0 +1,236 @@
+#+TITLE: Doom Emacs Config
+#+AUTHOR: Charged
+#+DESCRIPTION: My Personal Doom Emacs config.
+#+STARTUP: showeverything
+
+* Table of Contents :toc:
+- [[#about-this-config][About this config]]
+  - [[#dependencies][Dependencies]]
+- [[#appearance][Appearance]]
+  - [[#fonts][Fonts]]
+  - [[#theme][Theme]]
+- [[#beacon-mode][Beacon mode]]
+- [[#dashboard][Dashboard]]
+  - [[#dashboard-in-emacs-client][Dashboard in Emacs client]]
+- [[#emojis][Emojis]]
+- [[#identification][Identification]]
+- [[#line-numbers][Line numbers]]
+- [[#minimap][Minimap]]
+- [[#modeline][Modeline]]
+- [[#mouse-support][Mouse support]]
+- [[#neotree][Neotree]]
+- [[#org-mode][Org Mode]]
+  - [[#converting-org-to-html][Converting Org to HTML]]
+  - [[#org-autotangle][Org Autotangle]]
+  - [[#org-directories][Org directories]]
+  - [[#org-fonts][Org Fonts]]
+  - [[#org-superstar][Org Superstar]]
+- [[#rainbow-mode][Rainbow mode]]
+
+* About this config
+Welcome! This is my Doom Emacs config.
+[[https://gitlab.com/charged1/dotfiles/-/raw/main/.screenshots/doom.png]]
+
+** Dependencies
+This configuration file depends on all 3 other files in this folder. Removing one of them will result in a broken config.
+
+* Appearance
+We need Emacs to look pretty!
+** Fonts
+Using the JetBrains Mono and Ubuntu fonts.
+#+begin_src elisp
+(setq doom-font (font-spec :family "JetBrains Mono" :size 15)
+      doom-variable-pitch-font (font-spec :family "Ubuntu" :size 15)
+      doom-big-font (font-spec :family "JetBrains Mono" :size 24))
+(after! doom-themes
+  (setq doom-themes-enable-bold t
+        doom-themes-enable-italic t))
+(custom-set-faces!
+  '(font-lock-comment-face :slant italic)
+  '(font-lock-keyword-face :slant italic))
+#+end_src
+
+In case of an emergency, we can use:
+#+begin_example emacs-lisp
+;; - `doom-font' -- the primary font to use
+;; - `doom-variable-pitch-font' -- a non-monospace font (where applicable)
+;; - `doom-big-font' -- used for `doom-big-font-mode'; use this for
+;;   presentations or streaming.
+;; - `doom-unicode-font' -- for unicode glyphs
+;; - `doom-serif-font' -- for the `fixed-pitch-serif' face
+#+end_example
+
+** Theme
+Using the Doom One theme.
+#+begin_src emacs-lisp
+(setq doom-theme 'doom-one)
+#+end_src
+
+* Beacon mode
+This makes our mouse glow when scrolling!
+#+begin_src emacs-lisp
+(beacon-mode 1)
+#+end_src
+
+* Dashboard
+Testing.
+#+begin_example elisp
+(use-package dashboard
+  :init      ;; tweak dashboard config before loading it
+  (setq dashboard-set-heading-icons t)
+  (setq dashboard-set-file-icons t)
+  (setq dashboard-banner-logo-title "\nKEYBINDINGS:\
+\nFind file               (SPC .)     \
+Open buffer list    (SPC b i)\
+\nFind recent files       (SPC f r)   \
+Open the eshell     (SPC e s)\
+\nOpen dired file manager (SPC d d)   \
+List of keybindings (SPC h b b)")
+  (setq dashboard-startup-banner 'logo) ;; use standard emacs logo as banner
+  ;;(setq dashboard-startup-banner "~/.config/doom/doom-emacs-dash.png")  ;; use custom image as banner
+  (setq dashboard-center-content nil) ;; set to 't' for centered content
+  (setq dashboard-items '((recents . 5)
+                          (agenda . 5 )
+                          (bookmarks . 5)
+                          (projects . 5)
+                          (registers . 5)))
+  :config
+  (dashboard-setup-startup-hook)
+  (dashboard-modify-heading-icons '((recents . "file-text")
+                                    (bookmarks . "book"))))
+#+end_example
+
+** Dashboard in Emacs client
+#+begin_example elisp
+(setq doom-fallback-buffer-name "*dashboard*")
+#+end_example
+
+* Emojis
+Uses emoji mode to display emojis in Emacs!
+#+begin_src elisp
+(use-package emojify
+  :hook (after-init . global-emojify-mode))
+#+end_src
+* Identification
+Just to let people know who we are.
+#+begin_src emacs-lisp
+(setq user-full-name "Charged"
+      user-mail-address "someonesomething800@gmail.com")
+#+end_src
+
+* Line numbers
+#+begin_src emacs-lisp
+(setq display-line-numbers-type t)
+#+end_src
+
+* Minimap
+Even more VSCodey! For some reason, this does not work on Org files...
+#+begin_src elisp
+(setq minimap-window-location 'right)
+(map! :leader
+      (:prefix ("t" . "toggle")
+       :desc "Toggle minimap-mode" "m" #'minimap-mode))
+#+end_src
+
+* Modeline
+What goes at the bottom of all files!
+#+begin_src elisp
+(set-face-attribute 'mode-line nil :font "Ubuntu Mono-13")
+(setq doom-modeline-persp-name t  ;; adds perspective name to modeline
+      doom-modeline-persp-icon t) ;; adds folder icon next to persp name
+#+end_src
+
+* Mouse support
+Enable mouse support in the terminal version of Emacs.
+#+begin_src elisp
+(xterm-mouse-mode 1)
+#+end_src
+
+* Neotree
+Gives me the nice VSCode feeling!
+#+begin_src elisp
+(after! neotree
+  (setq neo-smart-open t
+        neo-window-fixed-size nil))
+(after! doom-themes
+  (setq doom-neotree-enable-variable-pitch t))
+(map! :leader
+      :desc "Toggle neotree file viewer" "t n" #'neotree-toggle
+      :desc "Open directory in neotree" "d n" #'neotree-dir)
+#+end_src
+
+* Org Mode
+My favourite! Adding more stuff here soon
+
+** Converting Org to HTML
+Experimenting with this.
+#+begin_src elisp
+(setq org-publish-use-timestamps-flag nil)
+(setq org-export-with-broken-links t)
+(setq org-publish-project-alist
+      '(("website"
+         :base-directory "~/GL-repos/website/"
+         :base-extension "org"
+         :publishing-directory "~/GL-repos/website/html/"
+         :recursive t
+         :exclude "org-html-themes/.*"
+         :publishing-function org-html-publish-to-html
+         :headline-levels 4             ; Just the default for this project.
+         :auto-preamble t)
+         ("org-static"
+         :base-directory "~/Org/website"
+         :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|ogg\\|swf"
+         :publishing-directory "~/public_html/"
+         :recursive t
+         :exclude ".*/org-html-themes/.*"
+         :publishing-function org-publish-attachment)
+         ))
+#+end_src
+
+** Org Autotangle
+This makes our babble files automatically tangle when saved.
+#+begin_src emacs-lisp
+(require 'org-auto-tangle)
+(add-hook 'org-mode-hook 'org-auto-tangle-mode)
+#+end_src
+
+** Org directories
+#+begin_src emacs-lisp
+(setq org-directory "~/org/")
+#+end_src
+
+** Org Fonts
+Makes headers larger than regular text! These colours are for Doom one and Doom Dracula only.
+#+begin_src elisp
+(custom-set-faces!
+  '(org-table   :foregorund "#vfafdf" :height 1.0 :weight normal)
+  '(org-level-1 :foreground "#51afef" :height 1.5 :weight ultra-bold)
+  '(org-level-2 :foreground "#c678dd" :height 1.4 :weight extra-bold)
+  '(org-level-3 :foreground "#98be65" :height 1.3 :weight bold)
+  '(org-level-4 :foreground "#da8548" :height 1.25 :weight semi-bold)
+  '(org-level-5 :foreground "#5699af" :height 1.2 :weight normal)
+  '(org-level-6 :foreground "#a9a1e1" :height 1.15 :weight normal)
+  '(org-level-7 :foreground "#46d9ff" :height 1.1 :weight normal)
+  '(org-level-8 :foreground "#ff6c6b" :height 1.05 :weight normal))
+
+(add-hook 'org-mode-hook #'mixed-pitch-mode)
+#+end_src
+
+** Org Superstar
+This makes our org bullets look nice.
+#+begin_src emacs-lisp
+(require 'org-superstar)
+(add-hook 'org-mode-hook (lambda () (org-superstar-mode 1)))
+#+end_src
+
+* Rainbow mode
+Allows colours to be displayed in Emacs.
+#+begin_src elisp
+(define-globalized-minor-mode global-rainbow-mode rainbow-mode
+  (lambda ()
+    (when (not (memq major-mode
+                (list 'org-agenda-mode)))
+     (rainbow-mode 1))))
+(global-rainbow-mode 1 )
+#+end_src
+
