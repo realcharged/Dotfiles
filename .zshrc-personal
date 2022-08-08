@@ -49,5 +49,8 @@ alias clean="rm -rf chde-configs/ pkg src"
 alias rn="rm chde-repo.db chde-repo.files;mv chde-repo.db.tar.gz chde-repo.db; mv chde-repo.files.tar.gz chde-repo.files"
 
 # Dotfiles
-alias config="/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME"
-alias configls="config ls-tree --full-tree -r --name-only HEAD"
+alias d="/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME"
+alias dls="config ls-tree --full-tree -r --name-only HEAD"
+alias da="d add -u"
+alias dc="d commit -m"
+alias dd="d push"

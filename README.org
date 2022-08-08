@@ -1,5 +1,6 @@
 #+title: Charged's Dotfiles
-#+description: This repository contains my personal dotfiles. You may face issues as not everyone is using the same system.
+#+description: README file for Charged's Dotfiles.
+This repository contains my personal dotfiles. You may face issues as not everyone is using the same system.
 
 * Table of Contents :toc:
 - [[#wait-what-are-dotfiles][Wait, what are dotfiles?]]
