@@ -21,7 +21,7 @@
 * About this config
 #+CAPTION: Qtile Scrot
 #+ATTR_HTML: :alt Qtile Scrot :title Qtile Scrot :align left
-[[https://gitlab.com/charged1/dotfiles/-/raw/main/.screenshots/qtile/desktop.png]]
+[[https://gitlab.com/charged1/dotfiles/-/raw/master/.screenshots/qtile/desktop.png]]
 
 Copyright (c) 2010 Aldo Cortesi
 Copyright (c) 2010, 2014 dequis
