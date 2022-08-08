@@ -1,0 +1,57 @@
+#+title: Org
+#+description: Learning how to use Emacs org mode!
+#+author: Charged
+
+* Table of Contents :toc:
+- [[#things-to-know][Things to know]]
+- [[#folding-unfolding][Folding, unfolding]]
+- [[#projects][Projects]]
+  - [[#this][this]]
+  - [[#proj-this][PROJ this]]
+- [[#checkboxes-02-0][Checkboxes]]
+- [[#tables][Tables]]
+  - [[#create][Create]]
+- [[#org-agenda][Org agenda]]
+
+* Things to know
++ Snippets: SPC I S
++ Trust me, use + for notes. It's so much better than -!
+
+* Folding, unfolding
++ z-a to toggle fold
++ z-A to toggle everything fold
++ z-M to fold everything
++ z-R to stop folding everything
+
+* Projects
+** TODO this
+SCHEDULED: <2022-08-03 Wed>
++ SPC-m-t-t to mark as todo.
++ SPC-m-d-s opens org schedule. Click on the date on the calandar.
++ If you go to the line where it says TODO and hit enter, it'll say done!
+
+** PROJ this
+
+* Checkboxes [0/2] [0%]
++ [ ] eggs: use C-c C-c to check it off.
++ [-] Oh, we got another one
+  + [X] We can sublist too!
+  + [ ] Trying another sublist
++ Open square brackets with slash to get a count of how much completed!
++ Open square brackets with percentage to get a percentage of how much completed!
++ Ctrl + enter for new list item
++ Tab to start a sublist.
+
+* Tables
+** Create
+*** Just use | t | t | t | t |
+*** Shift Enter to make a new line
+*** SPC m b - to make line a headline
+| 1 | 2 | 3 | 4 |
+|---+---+---+---|
+|   |   |   | 5 |
+|   |   |   | 6 |
+|   |   |   | 7 |
+
+* Org agenda
++ SPC-o-A

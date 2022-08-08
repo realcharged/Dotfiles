@@ -1,0 +1,582 @@
+#+TITLE: Python test
+#+AUTHOR: Charged
+#+STARTUP: showeverything
+
+* Welcome!
+This file just has some random Python code I'm using to learn Python with. Might be a bit messy, but I'm learning! The main source I'm using to learn is [[https://www.w3schools.com/python/][w3schools]].
+
+* Table of Contents :toc:
+- [[#welcome][Welcome!]]
+- [[#misc-notes][Misc notes]]
+- [[#basic-printing][Basic printing]]
+- [[#indentation][Indentation]]
+- [[#variables][Variables]]
+  - [[#rules][Rules]]
+  - [[#casting][Casting]]
+  - [[#listing][Listing]]
+- [[#comments][Comments]]
+- [[#data-types][Data types]]
+  - [[#random-numbers][Random Numbers]]
+  - [[#strings][Strings]]
+- [[#dictionaries][Dictionaries]]
+  - [[#notes][Notes]]
+  - [[#getting-a-value-from-a-dictionary][Getting a value from a dictionary]]
+  - [[#ordering][Ordering]]
+  - [[#length][Length]]
+  - [[#grabbing-keys][Grabbing keys]]
+  - [[#changing-values][Changing values]]
+- [[#conditional-statements][Conditional Statements]]
+  - [[#notes-1][Notes]]
+  - [[#elif][Elif]]
+  - [[#else][Else]]
+  - [[#short-hand-if][Short hand if]]
+  - [[#and][And]]
+- [[#while-loops][While loops]]
+- [[#functions][Functions]]
+- [[#arguments][Arguments]]
+  - [[#keyword-args][Keyword Args]]
+  - [[#default-parameters][Default Parameters]]
+- [[#classes-and-init][Classes and init]]
+  - [[#object-methods][Object Methods]]
+- [[#ilterators][Ilterators]]
+  - [[#string-ilteration][String ilteration]]
+  - [[#creating-ilterators][Creating ilterators]]
+  - [[#stop-ilteration][Stop ilteration]]
+- [[#modules][Modules]]
+  - [[#renaming-modules][Renaming modules]]
+  - [[#import-from-module][Import from module]]
+- [[#json][JSON]]
+  - [[#converting-python-to-json][Converting Python to JSON]]
+  - [[#json-can-be-converted-from][JSON can be converted from...]]
+- [[#try-except][Try, Except]]
+  - [[#example][Example]]
+- [[#input][Input]]
+
+* Misc notes
+ + Python is case sensitive.
+ + If something is Global, it means it can be used anywhere in the code.
+ + Arrays can hold multiple items in one variable.
+ + Scopes are where you can use each variable, for example, if you define x in a function, you can only use x in that function.
+
+* Basic printing
+This isn't too hard, just outputs a string or an integer in the console.
+#+BEGIN_SRC python
+print ("Hello, world!")
+print (1)
+#+END_SRC
+
+* Indentation
+Contains a basic conditional statement, but the point is, Python relies on a lot of indenting, so make sure to get that right!
+
+The number of spaces is up to you as a programmer, the most common use is four, but it has to be at least one.
+
+You have to use the same number of spaces in the same block of code, otherwise Python will give you an error
+#+BEGIN_SRC python
+if 2 > 1:
+    print ("2 is greater than one!")
+#+END_SRC
+
+* Variables
+Pretty simple: Just stores a value. Very useful as well!
+#+BEGIN_SRC python
+x = 5
+y = "Hello, World!"
+#+END_SRC
+
+** Rules
+ + A variable name must start with a letter or the underscore character.
+ + A variable name cannot start with a number.
+ + A variable name can only contain alpha-numeric characters and underscores.
+
+*** Legal variables:
+#+BEGIN_SRC python
+myvar = "Charged"
+my_var = "Charged"
+_my_var = "Charged"
+myVar = "Charged"
+MYVAR = "Charged"
+myvar2 = "Charged"
+#+END_SRC
+
+*** Illegal variables:
+#+BEGIN_EXAMPLE python
+2myvar = "Charged"
+my-var = "Charged"
+my var = "Charged"
+#+END_EXAMPLE
+
+** Casting
+This is important to make Python automatically display a type of variable.
+#+BEGIN_SRC python
+x = str(3)    # x will be '3'
+y = int(3)    # y will be 3
+z = float(3)  # z will be 3.0
+#+END_SRC
+You can get the casting type by using the type function.
+#+BEGIN_SRC python
+x = 5
+y = "Charged"
+print(type(x))
+print(type(y))
+#+END_SRC
+
+** Listing
+Python allows you to store multiple values to one variable:
+#+BEGIN_SRC python
+multiple = ["item1", "item2", "item3"]
+#+END_SRC
+
+*** Multiple values
+You can assign multiple values in 1 line!
+#+BEGIN_SRC python
+x, y, z = "Mango", "Avocado", "Lemon"
+print(x)
+print(y)
+print(z)
+#+END_SRC
+
+*** Unpacking lists
+You can turn lists into multiple variables!
+#+BEGIN_SRC python
+fruits = ["Mango", "Avocado", "Lemon"]
+x, y, z = fruits
+print(x)
+print(y)
+print(z)
+#+END_SRC
+
+*** Changing parts of lists
+#+BEGIN_SRC python
+thislist = ["apple", "banana", "cherry"]
+thislist[1] = "blackcurrant"
+print(thislist)
+#+END_SRC
+
+*** Adding to lists
+#+BEGIN_SRC python
+thislist = ["apple", "banana", "cherry"]
+thislist.append("orange")
+print(thislist)
+#+END_SRC
+
+*** Removing from lists
+#+BEGIN_SRC python
+thislist = ["apple", "banana", "cherry"]
+thislist.remove("banana")
+print(thislist)
+#+END_SRC
+
+* Comments
+Lines that won't appear in the code, or the console. I won't be using them much, since I already use org mode to document my code.
+#+BEGIN_SRC python
+#This is a comment.
+print("There was a comment above this message that didn't appear!")
+#+END_SRC
+
+* Data types
+Basic data types:
+ + Boolean (aka. Bool): True or False statement.
+ + String: Text, multiline strings will use triple quotation marks.
+ + Integer: A whole number
+ + Float: A decimal number.
+
+** Random Numbers
+#+BEGIN_SRC python
+import random
+
+print(random.randrange(1, 10))
+#+END_SRC
+
+** Strings
+Can be anything!
+
+*** String arrays
+#+BEGIN_SRC python
+a = "Hello, World!"
+print(a[1])
+#+END_SRC
+
+*** Looping through a string
+This should print out all the letters in "amazing!"
+#+BEGIN_SRC python
+for x in "amazing!":
+  print(x)
+#+END_SRC
+
+*** String length
+We can find out how long a string is:
+#+BEGIN_SRC python
+a = "Hello, World!"
+print(len(a))
+#+END_SRC
+
+*** Check in string
+You can find parts of a string, which will be outputted as a boolean.
+#+BEGIN_SRC python
+txt = "Oh yes, I do!"
+print("yes" in txt)
+#+END_SRC
+You can use if to choose what Python should do if the boolean is true.
+#+BEGIN_SRC python
+txt = "Oh yes, I do!!"
+if "yes" in txt:
+  print("Yes, 'yes' is present.")
+#+END_SRC
+Use not before the in to reverse this.
+
+*** Replacing Parts of Strings
+#+BEGIN_SRC python
+a = "Hello, World!"
+print(a.replace("H", "J"))
+#+END_SRC
+
+*** F strings
+My favourite way of enserting data into strings, removes all the hastle!
+#+begin_src python
+fruit = "popcorn"
+print(f"Wait, {popcorn} isn't a fruit!")
+#+end_src
+
+* Dictionaries
+Python dictionaries allow you to store information about certain things.
+#+begin_src python
+thisdict = {
+  "brand": "Ford",
+  "model": "Mustang",
+  "year": 1964
+}
+print(thisdict)
+#+end_src
+
+** Notes
++ Duplicates are not allowed, meaning you cannot have 2 brands for example.
++ Values in dictionaries can be of any type, like booleans for example.
++ If you change a value of a key that does not exist, it will make one.
+
+** Getting a value from a dictionary
+You can get a certain piece of information from python dicts.
+#+begin_src python
+thisdict = {
+  "brand": "Ford",
+  "model": "Mustang",
+  "year": 1964
+}
+print(thisdict["brand"])
+#+end_src
+
+** Ordering
+As of Python version 3.7, dictionaries are ordered. In Python 3.6 and earlier, dictionaries are unordered.
+
+** Length
+We can find the length of a dictionary.
+#+begin_src python
+print(len(thisdict))
+#+end_src
+
+** Grabbing keys
+You can get the keys of a dictionary like this:
+#+begin_src python
+x = thisdict.keys()
+#+end_src
+
+** Changing values
+Here is how you can change a dict value:
+#+begin_src python
+car = {
+"brand": "Ford",
+"model": "Mustang",
+"year": 1964
+}
+
+x = car.keys()
+
+print(x) #before the change
+
+car["color"] = "white"
+
+print(x) #after the change
+#+end_src
+
+* Conditional Statements
+One of my favourite parts of programming: Being able to check for things!
+#+begin_src python
+a = 33
+b = 200
+if b > a:
+  print("b is greater than a")
+#+end_src
+
+** Notes
++ Indentation is required underneath the if.
++ In the [[#and][And]] section, you can use "or".
++ Nested ifs are conditional statements used in a conditional statement.
++ != means not equals to.
+
+** Elif
+Elifs are another if statement that is run if the first statement isn't true.
+#+begin_src python
+a = 33
+b = 33
+if b > a:
+  print("b is greater than a")
+elif a == b:
+  print("a and b are equal")
+#+end_src
+
+** Else
+This is what the computer does when none of the above is true.
+#+begin_src python
+a = 200
+b = 33
+if b > a:
+  print("b is greater than a")
+elif a == b:
+  print("a and b are equal")
+else:
+  print("a is greater than b")
+#+end_src
+
+** Short hand if
+I won't be using this much, but nice to know.
+#+begin_src python
+if a > b: print("a is greater than b")
+#+end_src
+
+** And
+To check if 2 or more conditions are true.
+#+begin_src python
+a = 200
+b = 33
+c = 500
+if a > b and c > a:
+  print("Both conditions are True")
+#+end_src
+
+* While loops
+Just like a conditional statement except it doesn't do something once, it keeps doing it as long as the statement is true.
+#+begin_src python
+i = 1
+while i < 6:
+  print(i)
+  i += 1
+#+end_src
+
+* Functions
+Now this is exciting! Functions are kinda like variables of things to do.
+#+begin_src python
+def my_function():
+  print("Hello from a function")
+
+# Run it with:
+my_function()
+#+end_src
+
+* Arguments
+Allows you to run stuff with arguments, I guess...
+#+begin_src python
+def my_function(thing):
+  print(thing + "is cool!")
+
+my_function("This car")
+#+end_src
+
+** Keyword Args
+#+begin_src python
+def my_function(child3, child2, child1):
+  print("The youngest child is " + child3)
+
+my_function(child1 = "Jake", child2 = "James", child3 = "Timmy")
+#+end_src
+
+** Default Parameters
+What will be ran if nothing is specified.
+#+begin_src python
+def my_function(country = "Norway"):
+  print("I am from " + country)
+
+my_function("Sweden")
+my_function("India")
+my_function()
+my_function("Brazil")
+#+end_src
+
+* Classes and init
+#+begin_src python
+class Person:
+  def __init__(self, name, age):
+    self.name = name
+    self.age = age
+
+p1 = Person("John", 36)
+
+print(p1.name)
+print(p1.age)
+#+end_src
+
+** Object Methods
+#+begin_src python
+class Person:
+  def __init__(self, name, age):
+    self.name = name
+    self.age = age
+
+  def myfunc(self):
+    print("Hello my name is " + self.name)
+
+p1 = Person("John", 36)
+p1.myfunc()
+#+end_src
+
+* Ilterators
+This will print the tuple items in a list.
+#+begin_src python
+mytuple = ("apple", "banana", "cherry")
+myit = iter(mytuple)
+
+print(next(myit))
+print(next(myit))
+print(next(myit))
+#+end_src
+
+** String ilteration
+You can ilterate strings too.
+#+begin_src python
+mystr = "banana"
+myit = iter(mystr)
+
+print(next(myit))
+print(next(myit))
+print(next(myit))
+print(next(myit))
+print(next(myit))
+print(next(myit))
+#+end_src
+
+** Creating ilterators
+You can specify how to ilterate. This will print 1 to 5
+#+begin_src python
+class MyNumbers:
+  def __iter__(self):
+    self.a = 1
+    return self
+
+  def __next__(self):
+    x = self.a
+    self.a += 1
+    return x
+
+myclass = MyNumbers()
+myiter = iter(myclass)
+
+print(next(myiter))
+print(next(myiter))
+print(next(myiter))
+print(next(myiter))
+print(next(myiter))
+#+end_src
+
+** Stop ilteration
+This will stop after 20 literations.
+#+begin_src python
+class MyNumbers:
+  def __iter__(self):
+    self.a = 1
+    return self
+
+  def __next__(self):
+    if self.a <= 20:
+      x = self.a
+      self.a += 1
+      return x
+    else:
+      raise StopIteration
+
+myclass = MyNumbers()
+myiter = iter(myclass)
+
+for x in myiter:
+  print(x)
+#+end_src
+
+* Modules
+Lets say we have a file with a function. Let's call it `module.py`
+#+begin_src python
+def greeting(name):
+  print("Hello, " + name)
+#+end_src
+
+We can Import this function into another file.
+#+begin_src python
+import module
+
+module.greeting("Charged")
+#+end_src
++ Module variables can be used here too! You can use something like `module.varname`
+
+** Renaming modules
+It's easy:
+#+begin_src python
+import module as hello
+
+x = hello.name
+#+end_src
+
+** Import from module
+#+begin_src python
+from mymodule import person1
+
+print (person1["age"])
+#+end_src
+
+* JSON
+This is important to store info.
+
+** Converting Python to JSON
+#+begin_src python
+import json
+
+# a Python object (dict):
+x = {
+  "name": "John",
+  "age": 30,
+  "city": "New York"
+}
+
+# convert into JSON:
+y = json.dumps(x)
+
+# the result is a JSON string:
+print(y)
+#+end_src
+
+** JSON can be converted from...
++ dict
++ list
++ tuple
++ string
++ int
++ float
++ True
++ False
++ None
+
+* Try, Except
++ `try` will test a block of code for errors.
++ `except` will let you handle the error.
++ `else` will excecute code if there is no error.
++ `finally` will execute regardless.
+
+** Example
+#+begin_src python
+try:
+  print(x)
+except:
+  print("An exception occurred")
+#+end_src
+
+* Input
+Ask the user something!
+#+begin_src python
+username = input("Enter username:")
+print("Username is: " + username)
+#+end_src
