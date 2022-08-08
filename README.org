@@ -1,0 +1,63 @@
+#+title: Charged's Dotfiles
+#+description: This repository contains my personal dotfiles. You may face issues as not everyone is using the same system.
+
+* Table of Contents :toc:
+- [[#wait-what-are-dotfiles][Wait, what are dotfiles?]]
+- [[#using-my-dotfiles][Using my dotfiles]]
+- [[#how-i-manage-my-dotfiles][How I manage my Dotfiles]]
+  - [[#why-did-i-remake-my-dotfiles][Why did I remake my Dotfiles?]]
+- [[#my-configs][My configs]]
+  - [[#window-managers][Window Managers]]
+  - [[#terminals][Terminals]]
+  - [[#shells][Shells]]
+  - [[#other-configs][Other configs]]
+- [[#license][License]]
+
+* Wait, what are dotfiles?
+Dotfiles are configuration files or folders stored on the home directory of your GNU/Linux  system. The files or/and folders usually start with a period. It's a great way to backup configs incase something happens to your system, or you just need to reinstall.
+
+#+CAPTION: Doom Scrot
+#+ATTR_HTML: :alt Doom Scrot :title Doom Scrot :align left
+[[https://gitlab.com/charged1/dotfiles/-/raw/master/.screenshots/doom.png]]
+Above: My Doom Emacs config.
+
+* Using my dotfiles
+It's quick an easy! Just clone my repo and you're done!
+#+begin_src bash
+git clone https://gitlab.com/charged1/dotfiles
+#+end_src
+Then navigate to the location of the clone, and move the config file of your choice to your config directory.
+Make sure you backup your old configs, if you have one!
+
+* How I manage my Dotfiles
+To manage my Dotfiles, I use the  "Git Bare Method". This is an easy way of managing your dotfiles, without cluttering your home directory with symlinks! You can learn more [[https://www.atlassian.com/git/tutorials/dotfiles][here]].
+
+** Why did I remake my Dotfiles?
+I completely restarted my Dotfiles repo because I used to use the symlink method, and I had lots of issues sorting out what goes where, and some files I rewrite completely, won't even symlink because they have too many files connected! The Git Bare Method has saved me so I now use it.
+
+* My configs
+These are some of the configs I have on this repo.
+
+** Window Managers
++ Qtile
++ i3
++ Awesome (Coming soon!)
+
+** Terminals
++ Alacritty
++ Terminator
+
+** Shells
++ Bash
++ Fish
++ Zsh
++ Starship (Shell prompt)
+
+** Other configs
++ Neofetch
++ Rofi
++ Picom
++ Doom Emacs
+
+* License
+This repo uses the MIT License. License is stored [[https://gitlab.com/charged1/dotfiles/-/blob/master/LICENSE][here]].
