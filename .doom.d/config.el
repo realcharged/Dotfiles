@@ -107,9 +107,9 @@
 (setq org-export-with-broken-links t)
 (setq org-publish-project-alist
       '(("website"
-         :base-directory "~/GL-repos/website/"
+         :base-directory "~/gl/website/"
          :base-extension "org"
-         :publishing-directory "~/GL-repos/website/html/"
+         :publishing-directory "~/gl/website/html/"
          :recursive t
          :exclude "org-html-themes/.*"
          :publishing-function org-html-publish-to-html
