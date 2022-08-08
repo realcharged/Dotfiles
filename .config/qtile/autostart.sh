@@ -6,5 +6,5 @@ xfce4-clipman &
 nm-applet &
 nitrogen --restore &
 mpv --no-video ~/Music/startup.mp3 &
-emacs --daemon &
+/usr/bin/emacs --daemon &
 lxsession &
