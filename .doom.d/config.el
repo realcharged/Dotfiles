@@ -68,14 +68,14 @@
 
 (custom-set-faces!
   '(org-table   :foregorund "#vfafdf" :height 1.0 :weight normal)
-  '(org-level-1 :foreground "#51afef" :height 1.5 :weight ultra-bold)
-  '(org-level-2 :foreground "#c678dd" :height 1.4 :weight extra-bold)
-  '(org-level-3 :foreground "#98be65" :height 1.3 :weight bold)
-  '(org-level-4 :foreground "#da8548" :height 1.25 :weight semi-bold)
-  '(org-level-5 :foreground "#5699af" :height 1.2 :weight normal)
-  '(org-level-6 :foreground "#a9a1e1" :height 1.15 :weight normal)
-  '(org-level-7 :foreground "#46d9ff" :height 1.1 :weight normal)
-  '(org-level-8 :foreground "#ff6c6b" :height 1.05 :weight normal))
+  '(org-level-1 :height 1.5 :weight ultra-bold)
+  '(org-level-2 :height 1.4 :weight extra-bold)
+  '(org-level-3 :height 1.3 :weight bold)
+  '(org-level-4 :height 1.25 :weight semi-bold)
+  '(org-level-5 :height 1.2 :weight normal)
+  '(org-level-6 :height 1.15 :weight normal)
+  '(org-level-7 :height 1.1 :weight normal)
+  '(org-level-8 :height 1.05 :weight normal))
 
 (add-hook 'org-mode-hook #'mixed-pitch-mode)
 
