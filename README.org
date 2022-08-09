@@ -42,7 +42,7 @@ These are some of the configs I have on this repo.
 ** Window Managers
 + Qtile
 + i3
-+ Awesome (Coming soon!)
++ Awesome
 
 ** Terminals
 + Alacritty
