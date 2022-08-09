@@ -78,3 +78,4 @@
 (package! clippy)
 (package! minimap)
 (package! olivetti)
+(package! erc)
