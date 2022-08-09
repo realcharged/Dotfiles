@@ -216,8 +216,8 @@ root.buttons(gears.table.join(
 
 -- {{{ Key bindings
 globalkeys = gears.table.join(
-    awful.key({ modkey,           }, "s",      hotkeys_popup.show_help,
-              {description="show help", group="awesome"}),
+   -- awful.key({ modkey,           }, "s",      hotkeys_popup.show_help,
+   --            {description="show help", group="awesome"}),
     awful.key({ modkey,           }, "Left",   awful.tag.viewprev,
               {description = "view previous", group = "tag"}),
     awful.key({ modkey,           }, "Right",  awful.tag.viewnext,
@@ -268,10 +268,10 @@ globalkeys = gears.table.join(
     awful.key({ modkey, "Shift"   }, "q", function () awful.util.spawn("archlinux-logout") end,
               {description = "launch the logout screen", group = "awesome"}),
 
-    awful.key({ modkey,           }, "l",     function () awful.tag.incmwfact( 0.05)          end,
-              {description = "increase master width factor", group = "layout"}),
-    awful.key({ modkey,           }, "h",     function () awful.tag.incmwfact(-0.05)          end,
-              {description = "decrease master width factor", group = "layout"}),
+    -- awful.key({ modkey,           }, "l",     function () awful.tag.incmwfact( 0.05)          end,
+              -- {description = "increase master width factor", group = "layout"}),
+    -- awful.key({ modkey,           }, "h",     function () awful.tag.incmwfact(-0.05)          end,
+              -- {description = "decrease master width factor", group = "layout"}),
     awful.key({ modkey, "Shift"   }, "h",     function () awful.tag.incnmaster( 1, nil, true) end,
               {description = "increase the number of master clients", group = "layout"}),
     awful.key({ modkey, "Shift"   }, "l",     function () awful.tag.incnmaster(-1, nil, true) end,
@@ -303,6 +303,15 @@ globalkeys = gears.table.join(
     -- Drun
     awful.key({ modkey },            "d",     function () awful.util.spawn("rofi -show drun") end,
               {description = "drun rofi", group = "launcher"}),
+    -- Emacs
+    awful.key({ modkey },            "e",     function () awful.util.spawn("emacsclient --create-frame --alternate-editor=") end,
+              {description = "launch Emacs", group = "programs"}),
+    -- Spectacle
+    awful.key({ modkey },            "s",     function () awful.util.spawn("spectacle") end,
+              {description = "launch Spectacle", group = "programs"}),
+    -- Suspend
+    awful.key({ modkey },            "l",     function () awful.util.spawn("systemctl suspend") end,
+              {description = "suspends the device", group = "awesome"}),
 
     awful.key({ modkey }, "x",
               function ()
