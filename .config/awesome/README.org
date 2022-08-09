@@ -620,5 +620,5 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 * Autostart
 These commands will be run at startup.
 #+begin_src lua
-awful.spawn.once("alacritty")
+awful.spawn.with_shell("~/.config/awesome/autorun.sh")
 #+end_src
