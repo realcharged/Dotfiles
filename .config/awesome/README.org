@@ -7,6 +7,7 @@
 * Table of Contents :toc:
 - [[#about-this-config][About this config]]
 - [[#features-of-awesome][Features of Awesome]]
+- [[#things-to-adddo-04-0][Things to add/do]]
 - [[#libraries][Libraries]]
 - [[#error-handling][Error handling]]
 - [[#variables][Variables]]
@@ -22,8 +23,19 @@
 - [[#autostart][Autostart]]
 
 * About this config
+Awesome is a dynamic window manager for X11. It is highly customisable and configurable. It is written in C and Lua, and configured in Lua!
 
 * Features of Awesome
++ Highly customisable and configurable.
++ Configured in Lua, giving you endless options.
++ Has everything you'd expect from a WM.
++ Is great for beginners or advanced users.
+
+* TODO Things to add/do [0/4] [0%]
++ [ ] More Keybindings
++ [ ] Window Borders
++ [ ] Window Gaps
++ [ ] Top Bar
 
 * Libraries
 I haven't changed anything here, so everything is a must.
