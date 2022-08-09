@@ -45,8 +45,8 @@ end
 beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
-terminal = "alacritty"
-editor = os.getenv("emacs") or "nvim"
+terminal = "alacritty -o font.size=8"
+editor = os.getenv("emacs -nw") or "nvim"
 editor_cmd = terminal .. " -e " .. editor
 
 modkey = "Mod4"
