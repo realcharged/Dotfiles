@@ -11,6 +11,7 @@
 - [[#libraries][Libraries]]
 - [[#error-handling][Error handling]]
 - [[#variables][Variables]]
+- [[#theme][Theme]]
 - [[#layouts][Layouts]]
 - [[#menu][Menu]]
 - [[#screens][Screens]]
@@ -92,7 +93,7 @@ end
 * Variables
 Defines defaults, very important! Our terminal here is Alacritty, our editor is Emacs and our modkey is the Super key.
 #+begin_src lua
-beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
+-- beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
 terminal = "alacritty -o font.size=8"
@@ -102,12 +103,24 @@ editor_cmd = terminal .. " -e " .. editor
 modkey = "Mod4"
 #+end_src
 
+* Theme
+#+begin_src lua
+local themes = {
+    "powerarrow", -- 1
+}
+
+-- choose your theme here
+local chosen_theme = themes[1]
+local theme_path = string.format("%s/.config/awesome/themes/%s/theme.lua", os.getenv("HOME"), chosen_theme)
+beautiful.init(theme_path)
+#+end_src
+
 * Layouts
 I only have the ones I need uncommented, you can change this if you'd like.
 #+begin_src lua
 awful.layout.layouts = {
-    awful.layout.suit.floating,
     awful.layout.suit.tile,
+    awful.layout.suit.floating,
     -- awful.layout.suit.tile.left,
     -- awful.layout.suit.tile.bottom,
     -- awful.layout.suit.tile.top,
@@ -116,7 +129,7 @@ awful.layout.layouts = {
     -- awful.layout.suit.spiral,
     -- awful.layout.suit.spiral.dwindle,
     -- awful.layout.suit.max,
-    awful.layout.suit.max.fullscreen,
+    -- awful.layout.suit.max.fullscreen,
     -- awful.layout.suit.magnifier,
     -- awful.layout.suit.corner.nw,
     -- awful.layout.suit.corner.ne,
@@ -198,11 +211,44 @@ local tasklist_buttons = gears.table.join(
 
 * Screens
 I'm testing things out here.
+#+begin_example lua
+-- awesome variables
+awful.util.terminal = terminal
+--awful.util.tagnames = {  " ", " ", " ", " ", " ", " ", " ", " ", " ", " "  }
+awful.util.tagnames = { " DEV ", " WWW ", " SYS ", " DOC ", " VBOX ", " CHAT ", " MUS ", " VID ", " GFX " }
+awful.layout.suit.tile.left.mirror = true
+awful.layout.layouts = {
+    awful.layout.suit.tile,
+    awful.layout.suit.floating,
+    --awful.layout.suit.tile.left,
+    --awful.layout.suit.tile.bottom,
+    --awful.layout.suit.tile.top,
+    --awful.layout.suit.fair,
+    --awful.layout.suit.fair.horizontal,
+    --awful.layout.suit.spiral,
+    --awful.layout.suit.spiral.dwindle,
+    awful.layout.suit.max,
+    --awful.layout.suit.max.fullscreen,
+    awful.layout.suit.magnifier,
+    --awful.layout.suit.corner.nw,
+    --awful.layout.suit.corner.ne,
+    --awful.layout.suit.corner.sw,
+    --awful.layout.suit.corner.se,
+    --lain.layout.cascade,
+    --lain.layout.cascade.tile,
+    --lain.layout.centerwork,
+    --lain.layout.centerwork.horizontal,
+    --lain.layout.termfair,
+    --lain.layout.termfair.center,
+}
+
+beautiful.init(string.format(gears.filesystem.get_configuration_dir() .. "/themes/%s/theme.lua", chosen_theme))
+#+end_example
+
 #+begin_src lua
 awful.screen.connect_for_each_screen(function(s)
     -- Each screen has its own tag table.
-    awful.tag({ "1", "2", "3", "4", "5", "6", "7", "8", "9" }, s, awful.layout.layouts[1])
-
+    awful.tag({ "WWW", "DEV", "SYS", "DOC", "VBOX", "CHAT", "MUS", "VID", "GFX" }, s, awful.layout.layouts[1])
     -- Create a promptbox for each screen
     s.mypromptbox = awful.widget.prompt()
     -- Create an imagebox widget which will contain an icon indicating which layout we're using.
@@ -620,8 +666,8 @@ client.connect_signal("mouse::enter", function(c)
     c:emit_signal("request::activate", "mouse_enter", {raise = false})
 end)
 
-client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
-client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
+-- client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
+-- client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 #+end_src
 
 * Autostart
