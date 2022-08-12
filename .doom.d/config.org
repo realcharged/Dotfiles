@@ -14,6 +14,7 @@
   - [[#dashboard-in-emacs-client][Dashboard in Emacs client]]
 - [[#ement][Ement]]
 - [[#emojis][Emojis]]
+- [[#erc][ERC]]
 - [[#identification][Identification]]
 - [[#line-numbers][Line numbers]]
 - [[#minimap][Minimap]]
@@ -108,16 +109,33 @@ List of keybindings (SPC h b b)")
 
 * Ement
 Ement is a Matrix client made for Emacs! With this, you can even chat with Discord users through a bridge.
-#+begin_src elisp
+#+begin_example elisp
 (use-package ement
   :quelpa (ement :fetcher github :repo "alphapapa/ement.el"))
-#+end_src
+#+end_example
 
 * Emojis
 Uses emoji mode to display emojis in Emacs!
 #+begin_src elisp
 (use-package emojify
   :hook (after-init . global-emojify-mode))
+#+end_src
+
+* ERC
+ERC is an IRC chat client built into Emacs!
+#+begin_src elisp
+(setq erc-prompt (lambda () (concat "[" (buffer-name) "]"))
+      erc-server "irc.libera.chat"
+      erc-nick "Charged[m]"
+      erc-user-full-name "Charged"
+      erc-track-shorten-start 24
+      erc-autojoin-channels-alist '(("irc.libera.chat" "#archlinux" "#linux" "#emacs" "#awesome"))
+      erc-kill-buffer-on-part t
+      erc-fill-column 100
+      erc-fill-function 'erc-fill-static
+      erc-fill-static-center 20
+      ;; erc-auto-query 'bury
+      )
 #+end_src
 
 * Identification

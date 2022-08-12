@@ -12,11 +12,21 @@
 
 (beacon-mode 1)
 
-(use-package ement
-  :quelpa (ement :fetcher github :repo "alphapapa/ement.el"))
-
 (use-package emojify
   :hook (after-init . global-emojify-mode))
+
+(setq erc-prompt (lambda () (concat "[" (buffer-name) "]"))
+      erc-server "irc.libera.chat"
+      erc-nick "Charged[m]"
+      erc-user-full-name "Charged"
+      erc-track-shorten-start 24
+      erc-autojoin-channels-alist '(("irc.libera.chat" "#archlinux" "#linux" "#emacs" "#awesome"))
+      erc-kill-buffer-on-part t
+      erc-fill-column 100
+      erc-fill-function 'erc-fill-static
+      erc-fill-static-center 20
+      ;; erc-auto-query 'bury
+      )
 
 (setq user-full-name "Charged"
       user-mail-address "someonesomething800@gmail.com")
