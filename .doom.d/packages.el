@@ -79,3 +79,5 @@
 (package! minimap)
 (package! olivetti)
 (package! erc)
+(package! quelpa)
+(package! quelpa-use-package)

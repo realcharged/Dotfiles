@@ -12,6 +12,7 @@
 - [[#beacon-mode][Beacon mode]]
 - [[#dashboard][Dashboard]]
   - [[#dashboard-in-emacs-client][Dashboard in Emacs client]]
+- [[#ement][Ement]]
 - [[#emojis][Emojis]]
 - [[#identification][Identification]]
 - [[#line-numbers][Line numbers]]
@@ -25,6 +26,7 @@
   - [[#org-directories][Org directories]]
   - [[#org-fonts][Org Fonts]]
   - [[#org-superstar][Org Superstar]]
+- [[#quelpa][Quelpa]]
 - [[#rainbow-mode][Rainbow mode]]
 
 * About this config
@@ -104,12 +106,20 @@ List of keybindings (SPC h b b)")
 (setq doom-fallback-buffer-name "*dashboard*")
 #+end_example
 
+* Ement
+Ement is a Matrix client made for Emacs! With this, you can even chat with Discord users through a bridge.
+#+begin_src elisp
+(use-package ement
+  :quelpa (ement :fetcher github :repo "alphapapa/ement.el"))
+#+end_src
+
 * Emojis
 Uses emoji mode to display emojis in Emacs!
 #+begin_src elisp
 (use-package emojify
   :hook (after-init . global-emojify-mode))
 #+end_src
+
 * Identification
 Just to let people know who we are.
 #+begin_src emacs-lisp
@@ -220,6 +230,16 @@ This makes our org bullets look nice.
 #+begin_src emacs-lisp
 (require 'org-superstar)
 (add-hook 'org-mode-hook (lambda () (org-superstar-mode 1)))
+#+end_src
+
+* Quelpa
+Quelpa is an extra repo of packages so I can install more stuff :)
+#+begin_src elisp
+(quelpa
+ '(quelpa-use-package
+   :fetcher git
+   :url "https://github.com/quelpa/quelpa-use-package.git"))
+(require 'quelpa-use-package)
 #+end_src
 
 * Rainbow mode

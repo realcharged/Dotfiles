@@ -12,6 +12,9 @@
 
 (beacon-mode 1)
 
+(use-package ement
+  :quelpa (ement :fetcher github :repo "alphapapa/ement.el"))
+
 (use-package emojify
   :hook (after-init . global-emojify-mode))
 
@@ -81,6 +84,12 @@
 
 (require 'org-superstar)
 (add-hook 'org-mode-hook (lambda () (org-superstar-mode 1)))
+
+(quelpa
+ '(quelpa-use-package
+   :fetcher git
+   :url "https://github.com/quelpa/quelpa-use-package.git"))
+(require 'quelpa-use-package)
 
 (define-globalized-minor-mode global-rainbow-mode rainbow-mode
   (lambda ()
