@@ -68,7 +68,7 @@ import os
 import subprocess
 
 from libqtile import bar, layout, widget, hook
-from libqtile.config import Click, Drag, Group, Key, Match, Screen
+from libqtile.config import Click, Drag, Group, Key, Match, Screen, KeyChord
 from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
 #+END_SRC
@@ -123,11 +123,10 @@ keys = [
     Key([mod], "d", lazy.spawn("rofi -show drun"), desc="Launch rofi"),
     Key([mod], "r", lazy.spawn("rofi -show run"), desc="Launch rofi in a dmenu style"),
     Key([mod], "l", lazy.spawn("systemctl suspend"), desc="Suspends device"),
-    Key([mod, "shift"], "space", lazy.window.toggle_floating(), desc="Switch between floating and tiling.")
-    ]
+    Key([mod, "shift"], "space", lazy.window.toggle_floating(), desc="Switch between floating and tiling."),
+]
 #+end_src
 
-#+RESULTS:
 
 * Groups
 #+BEGIN_SRC python
