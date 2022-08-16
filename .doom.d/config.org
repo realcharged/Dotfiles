@@ -18,6 +18,7 @@ Personal configuration file written by Charged for Doom Emacs.
 - [[#emojis][Emojis]]
 - [[#erc][ERC]]
 - [[#identification][Identification]]
+- [[#important-keybindings][Important Keybindings]]
 - [[#line-numbers][Line numbers]]
 - [[#minimap][Minimap]]
 - [[#modeline][Modeline]]
@@ -117,10 +118,12 @@ List of keybindings (SPC h b b)")
 
 * Ement
 Ement is a Matrix client made for Emacs! With this, you can even chat with Discord users through a bridge.
-#+begin_example elisp
+#+begin_src elisp
+(package-install 'quelpa-use-package)
+(require 'quelpa-use-package)
 (use-package ement
   :quelpa (ement :fetcher github :repo "alphapapa/ement.el"))
-#+end_example
+#+end_src
 
 * Emojis
 Uses emoji mode to display emojis in Emacs!
@@ -152,6 +155,9 @@ Just to let people know who we are.
 (setq user-full-name "Charged"
       user-mail-address "someonesomething800@gmail.com")
 #+end_src
+
+* Important Keybindings
+Empty placeholder.
 
 * Line numbers
 #+begin_src emacs-lisp
@@ -260,13 +266,13 @@ This makes our org bullets look nice.
 
 * Quelpa
 Quelpa is an extra repo of packages so I can install more stuff :)
-#+begin_src elisp
+#+begin_example elisp
 (quelpa
  '(quelpa-use-package
    :fetcher git
    :url "https://github.com/quelpa/quelpa-use-package.git"))
 (require 'quelpa-use-package)
-#+end_src
+#+end_example
 
 * Rainbow mode
 Allows colours to be displayed in Emacs.

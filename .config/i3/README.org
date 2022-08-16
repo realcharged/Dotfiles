@@ -5,6 +5,7 @@
 #+STARTUP: showeverything
 
 * Table of contents :toc:
+- [[#about-this-config][About this config]]
 - [[#features-of-i3][Features of i3]]
 - [[#variables--fonts][Variables & fonts]]
 - [[#autostart-default][Autostart (Default)]]
@@ -80,6 +81,7 @@ floating_modifier $mod
 * Important keybindings
 Modkey = Windows/Super key
 | Keybinding             | Action                    |
+|------------------------+---------------------------|
 | Modkey + D             | Launches dmenu            |
 | Modkey + Shift + Space | Toggles floating mode     |
 | Modkey + Shift + R     | Restarts i3               |
@@ -94,6 +96,12 @@ bindsym $mod+Return exec alacritty
 # Brightness Keys
 bindsym $mod+b+u exec brightnessctl set +10%
 bindsym $mod+b+d exec brightnessctl set 10%-
+
+# Rofi run
+bindsym $mod+r exec rofi -show run
+
+# Guilded
+bindsym $mod+g exec killall guilded && guilded
 
 # Lock and Suspend Screen
 bindsym $mod+l exec i3lock && systemctl suspend
@@ -239,7 +247,7 @@ mode "resize" {
         bindsym $mod+r mode "default"
 }
 
-bindsym $mod+r mode "resize"
+# bindsym $mod+r mode "resize"
 #+END_SRC
 
 * Bar, Borders & Gaps

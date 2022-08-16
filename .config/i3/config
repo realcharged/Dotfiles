@@ -41,6 +41,12 @@ bindsym $mod+Return exec alacritty
 bindsym $mod+b+u exec brightnessctl set +10%
 bindsym $mod+b+d exec brightnessctl set 10%-
 
+# Rofi run
+bindsym $mod+r exec rofi -show run
+
+# Guilded
+bindsym $mod+g exec killall guilded && guilded
+
 # Lock and Suspend Screen
 bindsym $mod+l exec i3lock && systemctl suspend
 
@@ -178,7 +184,7 @@ mode "resize" {
         bindsym $mod+r mode "default"
 }
 
-bindsym $mod+r mode "resize"
+# bindsym $mod+r mode "resize"
 
 # Config for bumblebee-status, more info on README.
 bar {
