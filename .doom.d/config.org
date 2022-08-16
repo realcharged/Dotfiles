@@ -19,6 +19,8 @@ Personal configuration file written by Charged for Doom Emacs.
 - [[#erc][ERC]]
 - [[#identification][Identification]]
 - [[#important-keybindings][Important Keybindings]]
+  - [[#keybind-list][Keybind List]]
+  - [[#code][Code]]
 - [[#line-numbers][Line numbers]]
 - [[#minimap][Minimap]]
 - [[#modeline][Modeline]]
@@ -118,12 +120,12 @@ List of keybindings (SPC h b b)")
 
 * Ement
 Ement is a Matrix client made for Emacs! With this, you can even chat with Discord users through a bridge.
-#+begin_src elisp
+#+begin_example elisp
 (package-install 'quelpa-use-package)
 (require 'quelpa-use-package)
 (use-package ement
   :quelpa (ement :fetcher github :repo "alphapapa/ement.el"))
-#+end_src
+#+end_example
 
 * Emojis
 Uses emoji mode to display emojis in Emacs!
@@ -140,7 +142,7 @@ ERC is an IRC chat client built into Emacs!
       erc-nick "Charged[m]"
       erc-user-full-name "Charged"
       erc-track-shorten-start 24
-      erc-autojoin-channels-alist '(("irc.libera.chat" "#archlinux" "#linux" "#emacs" "#awesome"))
+      erc-autojoin-channels-alist '(("irc.libera.chat" "#archlinux" "#linux" "#emacs" "#awesome" "freetech studios"))
       erc-kill-buffer-on-part t
       erc-fill-column 100
       erc-fill-function 'erc-fill-static
@@ -157,7 +159,35 @@ Just to let people know who we are.
 #+end_src
 
 * Important Keybindings
-Empty placeholder.
+I've organised this part into 2: Keybindings and Actions
+
+** Keybind List
+There's so many, I need to categorise them!
+
+*** Keys
+Some keys are differently referred to in Emacs. Here's what they mean.
+| Key | Meaning                 |
+|-----+-------------------------|
+| SPC | Space                   |
+| C-  | Control                 |
+| M-  | Meta (Alt)              |
+| S-  | Super Key (Windows Key) |
+
+*** Workspaces
+You gotta know how to get around, before doing anything else!
+| Keybind          | Action                       |
+|------------------+------------------------------|
+| SPC TAB-[NUMBER] | Navigates to that workspace. |
+| SPC TAB-d        | Deletes active workspace.    |
+| C-t              | Creates a new workspace.     |
+
+*** Buffers
+| Keybind | Action                                         |
+|---------+------------------------------------------------|
+| SPC b-k | Kills active buffer                            |
+| SPC b-i | Opens ibuffer, which shows all running buffers |
+
+** Code
 
 * Line numbers
 #+begin_src emacs-lisp

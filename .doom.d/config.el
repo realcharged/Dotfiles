@@ -12,11 +12,6 @@
 
 (beacon-mode 1)
 
-(package-install 'quelpa-use-package)
-(require 'quelpa-use-package)
-(use-package ement
-  :quelpa (ement :fetcher github :repo "alphapapa/ement.el"))
-
 (use-package emojify
   :hook (after-init . global-emojify-mode))
 
@@ -25,7 +20,7 @@
       erc-nick "Charged[m]"
       erc-user-full-name "Charged"
       erc-track-shorten-start 24
-      erc-autojoin-channels-alist '(("irc.libera.chat" "#archlinux" "#linux" "#emacs" "#awesome"))
+      erc-autojoin-channels-alist '(("irc.libera.chat" "#archlinux" "#linux" "#emacs" "#awesome" "freetech studios"))
       erc-kill-buffer-on-part t
       erc-fill-column 100
       erc-fill-function 'erc-fill-static
