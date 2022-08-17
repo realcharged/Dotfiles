@@ -1,0 +1,152 @@
+#+TITLE: GNU Emacs Config
+#+AUTHOR: Charged
+
+* Table of Contents :toc:
+- [[#melpa][MELPA]]
+- [[#use-package][Use Package]]
+- [[#evil-mode][Evil Mode]]
+- [[#fonts][Fonts]]
+- [[#zooming-in-and-out][Zooming in and out]]
+- [[#gui-settings][GUI Settings]]
+  - [[#disable-menu][Disable menu]]
+  - [[#display-line-numbers][Display line numbers]]
+  - [[#doom-modeline][Doom Modeline]]
+- [[#which-key][Which Key]]
+- [[#org-mode][Org Mode]]
+  - [[#auto-toc][Auto TOC]]
+- [[#doom-themes][Doom themes]]
+
+* MELPA
+MELPA is an external repo of Emacs packages. It contains lots of the popular ones, so we must install it!
+#+begin_src elisp
+(require 'package)
+(add-to-list 'package-archives
+             '("melpa" . "https://melpa.org/packages/"))
+(package-refresh-contents)
+(package-initialize)
+#+end_src
+
+* Use Package
+#+begin_src elisp
+(unless (package-installed-p 'use-package)
+  (package-install 'use-package))
+(setq use-package-always-ensure t)
+#+end_src
+
+* Evil Mode
+Allows us to use Vim-like keybindings on Emacs.
+#+begin_src elisp
+(use-package evil
+  :init      ;; tweak evil's configuration before loading it
+  (setq evil-want-integration t) ;; This is optional since it's already set to t by default.
+  (setq evil-want-keybinding nil)
+  (setq evil-vsplit-window-right t)
+  (setq evil-split-window-below t)
+  (evil-mode))
+(use-package evil-collection
+  :after evil
+  :config
+  (setq evil-collection-mode-list '(dashboard dired ibuffer))
+  (evil-collection-init))
+(use-package evil-tutor)
+#+end_src
+
+* Fonts
+#+begin_src elisp
+(set-face-attribute 'default nil
+  :font "JetBrains Mono"
+  :height 110
+  :weight 'medium)
+(set-face-attribute 'variable-pitch nil
+  :font "Ubuntu"
+  :height 120
+  :weight 'medium)
+(set-face-attribute 'fixed-pitch nil
+  :font "JetBrains Mono"
+  :height 110
+  :weight 'medium)
+;; Makes commented text and keywords italics.
+;; This is working in emacsclient but not emacs.
+;; Your font must have an italic face available.
+(set-face-attribute 'font-lock-comment-face nil
+  :slant 'italic)
+(set-face-attribute 'font-lock-keyword-face nil
+  :slant 'italic)
+
+;; Uncomment the following line if line spacing needs adjusting.
+;; (setq-default line-spacing 0.12)
+
+;; Needed if using emacsclient. Otherwise, your fonts will be smaller than expected.
+(add-to-list 'default-frame-alist '(font . "Source Code Pro-11"))
+;; changes certain keywords to symbols, such as lamda!
+(setq global-prettify-symbols-mode t)
+#+end_src
+
+* Zooming in and out
+Why doesn't GNU Emacs have this by default? I have no idea.
+#+begin_src elisp
+(global-set-key (kbd "C-=") 'text-scale-increase)
+(global-set-key (kbd "C--") 'text-scale-decrease)
+(global-set-key (kbd "<C-wheel-up>") 'text-scale-increase)
+(global-set-key (kbd "<C-wheel-down>") 'text-scale-decrease)
+#+end_src
+
+* GUI Settings
+** Disable menu
+#+begin_src elisp
+(menu-bar-mode -1)
+(tool-bar-mode -1)
+(scroll-bar-mode -1)
+#+end_src
+
+** Display line numbers
+#+begin_src elisp
+(global-display-line-numbers-mode 1)
+(global-visual-line-mode t)
+#+end_src
+
+** Doom Modeline
+#+begin_src elisp
+(use-package doom-modeline)
+(doom-modeline-mode 1)
+#+end_src
+
+* Which Key
+Which one?
+#+begin_src elisp
+(use-package which-key
+  :init
+  (setq which-key-side-window-location 'bottom
+        which-key-sort-order #'which-key-key-order-alpha
+        which-key-sort-uppercase-first nil
+        which-key-add-column-padding 1
+        which-key-max-display-columns nil
+        which-key-min-display-lines 6
+        which-key-side-window-slot -10
+        which-key-side-window-max-height 0.25
+        which-key-idle-delay 0.8
+        which-key-max-description-length 25
+        which-key-allow-imprecise-window-fit t
+        which-key-separator " → " ))
+(which-key-mode)
+#+end_src
+
+* Org Mode
+** Auto TOC
+#+begin_src elisp
+(use-package toc-org
+  :commands toc-org-enable
+  :init (add-hook 'org-mode-hook 'toc-org-enable))
+#+end_src
+
+* Doom themes
+#+begin_src elisp
+  (use-package doom-themes
+    :ensure t
+    :config
+    ;; Global settings (defaults)
+    (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
+	  doom-themes-enable-italic t)) ; if nil, italics is universally disabled
+  (load-theme 'doom-one t)
+#+end_src
+
