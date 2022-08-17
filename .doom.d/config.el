@@ -12,6 +12,24 @@
 
 (beacon-mode 1)
 
+(use-package quelpa-use-package)
+;; Don't forget to run M-x eaf-install-dependencies
+(use-package eaf
+  :demand t
+  :quelpa (eaf :fetcher github
+              :repo  "manateelazycat/emacs-application-framework"
+              :files ("*"))
+  :load-path "~/.emacs.d/site-lisp/emacs-application-framework" ; Set to "/usr/share/emacs/site-lisp/eaf" if installed from AUR
+  :init
+  (use-package epc      :defer t :ensure t)
+  (use-package ctable   :defer t :ensure t)
+  (use-package deferred :defer t :ensure t)
+  (use-package s        :defer t :ensure t)
+  (setq browse-url-browser-function 'eaf-open-browser))
+
+(require 'eaf-browser)
+(require 'eaf-camera)
+
 (use-package emojify
   :hook (after-init . global-emojify-mode))
 

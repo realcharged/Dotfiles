@@ -14,6 +14,7 @@ Personal configuration file written by Charged for Doom Emacs.
 - [[#beacon-mode][Beacon mode]]
 - [[#dashboard][Dashboard]]
   - [[#dashboard-in-emacs-client][Dashboard in Emacs client]]
+- [[#eaf][EAF]]
 - [[#ement][Ement]]
 - [[#emojis][Emojis]]
 - [[#erc][ERC]]
@@ -117,6 +118,27 @@ List of keybindings (SPC h b b)")
 #+begin_example elisp
 (setq doom-fallback-buffer-name "*dashboard*")
 #+end_example
+
+* EAF
+#+begin_src elisp
+(use-package quelpa-use-package)
+;; Don't forget to run M-x eaf-install-dependencies
+(use-package eaf
+  :demand t
+  :quelpa (eaf :fetcher github
+              :repo  "manateelazycat/emacs-application-framework"
+              :files ("*"))
+  :load-path "~/.emacs.d/site-lisp/emacs-application-framework" ; Set to "/usr/share/emacs/site-lisp/eaf" if installed from AUR
+  :init
+  (use-package epc      :defer t :ensure t)
+  (use-package ctable   :defer t :ensure t)
+  (use-package deferred :defer t :ensure t)
+  (use-package s        :defer t :ensure t)
+  (setq browse-url-browser-function 'eaf-open-browser))
+
+(require 'eaf-browser)
+(require 'eaf-camera)
+#+end_src
 
 * Ement
 Ement is a Matrix client made for Emacs! With this, you can even chat with Discord users through a bridge.
