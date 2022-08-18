@@ -1,14 +1,17 @@
 #+TITLE: GNU Emacs Config
 #+AUTHOR: Charged
+Personal configuration file written by Charged for Doom Emacs.
 
 * Table of Contents :toc:
+- [[#about-this-config][About this config]]
+  - [[#warning][WARNING]]
 - [[#melpa][MELPA]]
 - [[#use-package][Use Package]]
 - [[#evil-mode][Evil Mode]]
 - [[#fonts][Fonts]]
 - [[#zooming-in-and-out][Zooming in and out]]
-- [[#gui-settings][GUI Settings]]
-  - [[#disable-menu][Disable menu]]
+- [[#gui-settings][GUI SETTINGS]]
+  - [[#disable-menu][DISABLE MENU]]
   - [[#display-line-numbers][Display line numbers]]
   - [[#doom-modeline][Doom Modeline]]
 - [[#which-key][Which Key]]
@@ -28,6 +31,26 @@
   - [[#dashboard-on-emacs-client][Dashboard on Emacs client]]
 - [[#emojis][Emojis]]
 - [[#erc][ERC]]
+- [[#neotree][Neotree]]
+- [[#vterm][Vterm]]
+- [[#snippets][Snippets]]
+- [[#startup-performance][Startup Performance]]
+  - [[#garbage-collection][Garbage collection]]
+  - [[#native-compile][Native Compile]]
+- [[#runtime-performance][Runtime performance]]
+- [[#writeroom-mode][Writeroom Mode]]
+- [[#blink-cursor-mode][Blink cursor mode]]
+- [[#beacon-mode][Beacon mode]]
+
+* About this config
+GNU Emacs is a powerful, extensible text editor. It's pretty much its own operating system! I mean, what can't Emacs do? This config of mine is trying to be as much like Doom Emacs as possible, but to have Emacs work as GNU Emacs.
+
+#+CAPTION: GNU Emacs Scrot
+#+ATTR_HTML: :alt GNU Emacs Scrot :title GNU Emacs Scrot :align left
+[[https://gitlab.com/charged1/dotfiles/-/raw/master/.screenshots/emacs/gnu-emacs.png]]
+
+** WARNING
+This config is for GNU Emacs, not Doom Emacs. If you would like to visit that, check [[https://gitlab.com/charged1/dotfiles/-/tree/master/.doom.d][this]] out.
 
 * MELPA
 MELPA is an external repo of Emacs packages. It contains lots of the popular ones, so we must install it!
@@ -96,16 +119,16 @@ Allows us to use Vim-like keybindings on Emacs.
 #+end_src
 
 * Zooming in and out
-Why doesn't GNU Emacs have this by default? I have no idea.
 #+begin_src elisp
 (global-set-key (kbd "C-=") 'text-scale-increase)
 (global-set-key (kbd "C--") 'text-scale-decrease)
 (global-set-key (kbd "<C-wheel-up>") 'text-scale-increase)
 (global-set-key (kbd "<C-wheel-down>") 'text-scale-decrease)
 #+end_src
+Why doesn't GNU Emacs have this by default? I have no idea.
 
-* GUI Settings
-** Disable menu
+* GUI SETTINGS
+** DISABLE MENU
 #+begin_src elisp
 (menu-bar-mode -1)
 (tool-bar-mode -1)
@@ -443,5 +466,18 @@ Reducing the frequency
 
 * Writeroom Mode
 #+begin_src elisp
-(use-package writeroom-mode)
+  ;; (use-package writeroom-mode)
+#+end_src
+
+* Blink cursor mode
+Sometime, I don't like it when my cursor blinks, so i turn it off.
+#+begin_src elisp
+(blink-cursor-mode 0)
+#+end_src
+
+* Beacon mode
+Make your cursor glow after scrolling!
+#+begin_src elisp
+(use-package beacon)
+(beacon-mode 1)
 #+end_src

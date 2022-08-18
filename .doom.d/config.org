@@ -38,7 +38,7 @@ Personal configuration file written by Charged for Doom Emacs.
 
 * About this config
 Welcome! This is my Doom Emacs config.
-[[https://gitlab.com/charged1/dotfiles/-/raw/master/.screenshots/doom.png]]
+[[https://gitlab.com/charged1/dotfiles/-/raw/master/.screenshots/emacs/doom.png]]
 
 ** What is Emacs?
 GNU Emacs is a text editor (really an operating system) made for GNU/Linux systems but can be used on others too. It has tons of useful features such as Org mode. I choose Emacs because it is extremely extensible and customisable.
