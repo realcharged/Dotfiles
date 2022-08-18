@@ -14,7 +14,20 @@
 - [[#which-key][Which Key]]
 - [[#org-mode][Org Mode]]
   - [[#auto-toc][Auto TOC]]
+  - [[#org-fonts][Org Fonts]]
+  - [[#org-superstar][Org Superstar]]
+- [[#org-auto-tangle][Org auto tangle]]
 - [[#doom-themes][Doom themes]]
+- [[#more-keybinds][More keybinds]]
+- [[#all-the-icons][All the icons]]
+- [[#dired][Dired]]
+- [[#ivy][IVY]]
+  - [[#ivy-posframe][Ivy Posframe]]
+- [[#language-support][Language Support]]
+- [[#dashboard][Dashboard]]
+  - [[#dashboard-on-emacs-client][Dashboard on Emacs client]]
+- [[#emojis][Emojis]]
+- [[#erc][ERC]]
 
 * MELPA
 MELPA is an external repo of Emacs packages. It contains lots of the popular ones, so we must install it!
@@ -139,6 +152,23 @@ Which one?
   :init (add-hook 'org-mode-hook 'toc-org-enable))
 #+end_src
 
+** Org Fonts
+#+begin_src elisp
+(add-hook 'org-mode-hook #'mixed-pitch-mode)
+#+end_src
+
+** Org Superstar
+Nice bullets you got there!
+#+begin_src elisp
+(use-package org-superstar)
+(add-hook 'org-mode-hook (lambda () (org-superstar-mode 1)))
+#+end_src
+
+* Org auto tangle
+Tangles config files on save.
+#+begin_src elisp
+#+end_src
+
 * Doom themes
 #+begin_src elisp
   (use-package doom-themes
@@ -146,7 +176,178 @@ Which one?
     :config
     ;; Global settings (defaults)
     (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
-	  doom-themes-enable-italic t)) ; if nil, italics is universally disabled
-  (load-theme 'doom-one t)
+       doom-themes-enable-italic t)) ; if nil, italics is universally disabled
+(load-theme 'doom-one)
 #+end_src
 
+* More keybinds
+#+begin_src elisp
+  (use-package general
+  :config
+  (general-evil-setup t))
+  (nvmap :keymaps 'override :prefix "SPC"
+	 "SPC"   '(counsel-M-x :which-key "M-x")
+	 "c c"   '(compile :which-key "Compile")
+	 "c C"   '(recompile :which-key "Recompile")
+	 "h r r" '((lambda () (interactive) (load-file "~/.emacs.d/init.el")) :which-key "Reload emacs config")
+	 "l t"   '(load-theme :which-key "Load theme")
+	 "t t"   '(toggle-truncate-lines :which-key "Toggle truncate lines")
+	 "b k"   '(kill-current-buffer :which-key "Kill the current buffer.")
+	 "b i"   '(ibuffer :which-key "Open iBuffer"))
+  (nvmap :keymaps 'override :prefix "SPC"
+	 "m *"   '(org-ctrl-c-star :which-key "Org-ctrl-c-star")
+	 "m +"   '(org-ctrl-c-minus :which-key "Org-ctrl-c-minus")
+	 "m ."   '(counsel-org-goto :which-key "Counsel org goto")
+	 "m e"   '(org-export-dispatch :which-key "Org export dispatch")
+	 "m f"   '(org-footnote-new :which-key "Org footnote new")
+	 "m h"   '(org-toggle-heading :which-key "Org toggle heading")
+	 "m i"   '(org-toggle-item :which-key "Org toggle item")
+	 "m n"   '(org-store-link :which-key "Org store link")
+	 "m o"   '(org-set-property :which-key "Org set property")
+	 "m t"   '(org-todo :which-key "Org todo")
+	 "m I"   '(org-toggle-inline-images :which-key "Org toggle inline imager")
+	 "m T"   '(org-todo-list :which-key "Org todo list")
+	 "o a"   '(org-agenda :which-key "Org agenda")
+	 )
+#+end_src
+
+* All the icons
+Emacs is a GUI program, let's make the most out of it.
+#+begin_src elisp
+(use-package all-the-icons)
+#+end_src
+
+* Dired
+The built-in file manager for Emacs!
+#+begin_src elisp
+(use-package all-the-icons-dired)
+(use-package dired-open)
+(use-package peep-dired)
+
+(nvmap :states '(normal visual) :keymaps 'override :prefix "SPC"
+               "."   '(dired :which-key "Open dired")
+               "d j" '(dired-jump :which-key "Dired jump to current")
+               "d p" '(peep-dired :which-key "Peep-dired"))
+
+(add-hook 'peep-dired-hook 'evil-normalize-keymaps)
+;; Get file icons in dired
+(add-hook 'dired-mode-hook 'all-the-icons-dired-mode)
+#+end_src
+
+* IVY
+#+begin_src elisp
+  (use-package counsel
+    :after ivy
+    :config (counsel-mode))
+  (use-package ivy
+    :defer 0.1
+    :diminish
+    :bind
+    (("C-c C-r" . ivy-resume)
+     ("C-x B" . ivy-switch-buffer-other-window))
+    :custom
+    (setq ivy-count-format "(%d/%d) ")
+    (setq ivy-use-virtual-buffers t)
+    (setq enable-recursive-minibuffers t)
+    :config
+    (ivy-mode))
+  (use-package ivy-rich
+    :after ivy
+    :custom
+    (ivy-virtual-abbreviate 'full
+     ivy-rich-switch-buffer-align-virtual-buffer t
+     ivy-rich-path-style 'abbrev)
+    :config
+    (ivy-set-display-transformer 'ivy-switch-buffer
+				 'ivy-rich-switch-buffer-transformer)
+    (ivy-rich-mode 1)) ;; this gets us descriptions in M-x.
+  (use-package swiper
+    :after ivy
+    :bind (("C-s" . swiper)
+	   ("C-r" . swiper)))
+
+(setq ivy-initial-inputs-alist nil)
+(use-package smex)
+(smex-initialize)
+#+end_src
+
+** Ivy Posframe
+#+begin_src elisp
+(use-package ivy-posframe
+  :init
+  (setq ivy-posframe-display-functions-alist
+    '((swiper                     . ivy-posframe-display-at-point)
+      (complete-symbol            . ivy-posframe-display-at-point)
+      (counsel-M-x                . ivy-display-function-fallback)
+      (counsel-esh-history        . ivy-posframe-display-at-window-center)
+      (counsel-describe-function  . ivy-display-function-fallback)
+      (counsel-describe-variable  . ivy-display-function-fallback)
+      (counsel-find-file          . ivy-display-function-fallback)
+      (counsel-recentf            . ivy-display-function-fallback)
+      (counsel-register           . ivy-posframe-display-at-frame-bottom-window-center)
+      (dmenu                      . ivy-posframe-display-at-frame-top-center)
+      (nil                        . ivy-posframe-display))
+    ivy-posframe-height-alist
+    '((swiper . 20)
+      (dmenu . 20)
+      (t . 10)))
+  :config
+  (ivy-posframe-mode 1)) ; 1 enables posframe-mode, 0 disables it.
+#+end_src
+
+* Language Support
+#+begin_src elisp
+(use-package python-mode)
+(use-package lua-mode)
+(use-package markdown-mode)
+#+end_src
+
+* Dashboard
+You gotta have it look good!
+#+begin_src elisp
+(use-package dashboard
+  :init      ;; tweak dashboard config before loading it
+  (setq dashboard-set-heading-icons t)
+  (setq dashboard-set-file-icons t)
+  (setq dashboard-banner-logo-title "Emacs Is More Than A Text Editor!")
+  ;;(setq dashboard-startup-banner 'logo) ;; use standard emacs logo as banner
+  (setq dashboard-startup-banner "~/.emacs.d/emacs-dash.png")  ;; use custom image as banner
+  (setq dashboard-center-content nil) ;; set to 't' for centered content
+  (setq dashboard-items '((recents . 5)
+                          (agenda . 5 )
+                          (bookmarks . 3)
+                          (registers . 3)))
+  :config
+  (dashboard-setup-startup-hook)
+  (dashboard-modify-heading-icons '((recents . "file-text")
+			      (bookmarks . "book"))))
+#+end_src
+
+** Dashboard on Emacs client
+#+begin_src elisp
+(setq initial-buffer-choice (lambda () (get-buffer "*dashboard*")))
+#+end_src
+
+* Emojis
+Who doesn't love emojis?
+#+begin_src elisp
+(use-package emojify
+  :hook (after-init . global-emojify-mode))
+#+end_src
+
+* ERC
+IRC, in Emacs!
+#+begin_src elisp
+(setq erc-prompt (lambda () (concat "[" (buffer-name) "]"))
+      erc-server "irc.libera.chat"
+      erc-nick "Charged[m]"
+      erc-user-full-name "Charged"
+      erc-track-shorten-start 24
+      erc-autojoin-channels-alist '(("irc.libera.chat" "#archlinux" "#linux" "#emacs" "#awesome" "freetech studios"))
+      erc-kill-buffer-on-part t
+      erc-fill-column 100
+      erc-fill-function 'erc-fill-static
+      erc-fill-static-center 20
+      ;; erc-auto-query 'bury
+      )
+#+end_src
