@@ -1,6 +1,6 @@
 #+TITLE: GNU Emacs Config
 #+AUTHOR: Charged
-Personal configuration file written by Charged for Doom Emacs.
+Personal configuration file written by Charged for GNU Emacs.
 
 * Table of Contents :toc:
 - [[#about-this-config][About this config]]
