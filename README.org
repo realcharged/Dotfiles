@@ -19,7 +19,7 @@ Dotfiles are configuration files or folders stored on the home directory of your
 
 #+CAPTION: Doom Scrot
 #+ATTR_HTML: :alt Doom Scrot :title Doom Scrot :align left
-[[https://gitlab.com/charged1/dotfiles/-/raw/master/.screenshots/doom.png]]
+[[https://gitlab.com/charged1/dotfiles/-/raw/master/.screenshots/emacs/doom.png]]
 Above: My Doom Emacs config.
 
 * Using my dotfiles
