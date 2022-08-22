@@ -114,8 +114,8 @@ keys = [
     Key([mod], "Tab", lazy. next_layout(), desc="Toggle between layouts"),
     Key([mod], "q", lazy. window.kill(), desc="Kill focused window"),
     Key([mod], "e", lazy.spawn("emacsclient --create-frame --alternate-editor="), desc="Opens DOOM Emacs"),
-    Key([mod], "w", lazy.spawn("./Documents/dm-wiki"), desc="Opens Archwiki search"),
-    Key([mod], "o", lazy.spawn("brave canary.discord.com/app"), desc="Opens Discord"),
+    Key([mod], "o", lazy.spawn("killall guilded && guilded"), desc="Kills, then opens Guilded"),
+    Key([mod], "w", lazy.spawn("killall emacs"), desc="Kills Emacs"),
     Key([mod], "s", lazy.spawn("spectacle"), desc="Opens Spectacle"),
     Key([mod, "shift"], "r", lazy.reload_config(), desc="Reload the config"),
     Key([mod, "shift"], "q", lazy.spawn("archlinux-logout"), desc="Launch the logout menu."),
@@ -172,9 +172,9 @@ layouts = [
     layout.Max(),
     # Try more layouts by unleashing below layouts.
     # layout.Stack(num_stacks=2),
-    layout.Bsp(border_on_single="#ffffff", border_focus="#ffffff", border_normal="#46d9ff", border_width=2, margin=8),
+    layout.Bsp(border_on_single="#c678dd", border_focus="#c678dd", border_normal="#282c34", border_width=2, margin=8),
     # layout.Matrix(),
-    layout.MonadTall(border_on_single="#ffffff", border_focus="#ffffff", border_normal="#46d9ff", border_width=2, margin=8),
+    layout.MonadTall(border_on_single="#c678dd", border_focus="#c678dd", border_normal="#282c34", border_width=2, margin=8),
     # layout.MonadWide(),
     # layout.RatioTile(),
     # layout.Tile(),
@@ -405,8 +405,8 @@ floating_layout = layout.Floating(
         Match(title="pinentry"),  # GPG key password entry
     ],
     border_width=2,
-    border_focus="ffffff",
-    border_normal="#363e9e"
+    border_focus="#c678dd",
+    border_normal="#282c34"
 )
 
 auto_fullscreen = True
