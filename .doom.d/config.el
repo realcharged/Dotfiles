@@ -47,6 +47,7 @@
       )
 
 (require 'exwm)
+(exwm-enable)
 (require 'exwm-config)
 (exwm-config-default)
 (require 'exwm-systemtray)

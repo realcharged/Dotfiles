@@ -19,6 +19,7 @@ Personal configuration file written by Charged for Doom Emacs.
 - [[#emojis][Emojis]]
 - [[#erc][ERC]]
 - [[#exwm][EXWM]]
+  - [[#basic-functionality][Basic Functionality]]
 - [[#identification][Identification]]
 - [[#important-keybindings][Important Keybindings]]
   - [[#keybind-list][Keybind List]]
@@ -178,9 +179,13 @@ ERC is an IRC chat client built into Emacs!
 #+end_src
 
 * EXWM
-EXWM, or Emacs X Window Manager allows us to use Emacs as a window manager, we can literally live in Emacs now.
+EXWM, or Emacs X Window Manager, is a tiling window manager for X11, which allows you to live inside of Emacs. It comes with features you would expect from any other window manager. I have recently gained interest in this topic, and am working on improving this config.
+
+** Basic Functionality
+Making EXWM work.
 #+begin_src elisp
 (require 'exwm)
+(exwm-enable)
 (require 'exwm-config)
 (exwm-config-default)
 (require 'exwm-systemtray)
