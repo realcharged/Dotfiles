@@ -47,16 +47,30 @@
       )
 
 (require 'exwm)
-(exwm-enable)
 (require 'exwm-config)
 (exwm-config-default)
 (require 'exwm-systemtray)
 (exwm-systemtray-enable)
 ;; (require 'exwm-randr)
 
-(setq exwm-workspace-number 10
-      exwm-input-prefix-keys '(?\M-x))
-;;       exwm-input-global-keys '([?\s-d] . dmenu))
+(setq exwm-input-global-keys
+      `(([?\s-r] . exwm-reset)
+        ([?\s-w] . exwm-workspace-switch)
+        ([?\s-d] . dmenu)
+        ,@(mapcar (lambda (i)
+                    `(,(kbd (format "s-%d" i)) .
+                      (lambda ()
+                        (interactive)
+                        (exwm-workspace-switch-create ,i))))
+                  (number-sequence 0 9))))
+
+(exwm-enable)
+
+(defun exwm-logout ()
+  (interactive)
+  (recentf-save-list)
+  (save-some-buffers)
+  (start-process-shell-command "logout" nil "killall emacs"))
 
 (setq user-full-name "Charged"
       user-mail-address "someonesomething800@gmail.com")

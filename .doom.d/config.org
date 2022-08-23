@@ -20,6 +20,7 @@ Personal configuration file written by Charged for Doom Emacs.
 - [[#erc][ERC]]
 - [[#exwm][EXWM]]
   - [[#basic-functionality][Basic Functionality]]
+  - [[#logging-out][Logging Out]]
 - [[#identification][Identification]]
 - [[#important-keybindings][Important Keybindings]]
   - [[#keybind-list][Keybind List]]
@@ -185,16 +186,34 @@ EXWM, or Emacs X Window Manager, is a tiling window manager for X11, which allow
 Making EXWM work.
 #+begin_src elisp
 (require 'exwm)
-(exwm-enable)
 (require 'exwm-config)
 (exwm-config-default)
 (require 'exwm-systemtray)
 (exwm-systemtray-enable)
 ;; (require 'exwm-randr)
 
-(setq exwm-workspace-number 10
-      exwm-input-prefix-keys '(?\M-x))
-;;       exwm-input-global-keys '([?\s-d] . dmenu))
+(setq exwm-input-global-keys
+      `(([?\s-r] . exwm-reset)
+        ([?\s-w] . exwm-workspace-switch)
+        ([?\s-d] . dmenu)
+        ,@(mapcar (lambda (i)
+                    `(,(kbd (format "s-%d" i)) .
+                      (lambda ()
+                        (interactive)
+                        (exwm-workspace-switch-create ,i))))
+                  (number-sequence 0 9))))
+
+(exwm-enable)
+#+end_src
+
+** Logging Out
+Logging out of EXWM is a pain by default, we can fix this.
+#+begin_src elisp
+(defun exwm-logout ()
+  (interactive)
+  (recentf-save-list)
+  (save-some-buffers)
+  (start-process-shell-command "logout" nil "killall emacs"))
 #+end_src
 
 * Identification
