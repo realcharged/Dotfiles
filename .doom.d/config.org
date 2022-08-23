@@ -29,6 +29,7 @@ Personal configuration file written by Charged for Doom Emacs.
 - [[#neotree][Neotree]]
 - [[#org-mode][Org Mode]]
   - [[#converting-org-to-html][Converting Org to HTML]]
+  - [[#open-notes][Open Notes]]
   - [[#org-autotangle][Org Autotangle]]
   - [[#org-directories][Org directories]]
   - [[#org-fonts][Org Fonts]]
@@ -280,6 +281,16 @@ Experimenting with this.
          :exclude ".*/org-html-themes/.*"
          :publishing-function org-publish-attachment)
          ))
+#+end_src
+
+** Open Notes
+This opens our org notes with a simple keybinding.
+#+begin_src elisp
+(defun open-org-notes ()
+  (interactive)
+  (find-file "/home/charged/org/life.org"))
+
+(map! :leader "o d" #'open-org-notes)
 #+end_src
 
 ** Org Autotangle

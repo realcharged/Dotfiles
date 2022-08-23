@@ -92,6 +92,12 @@
          :publishing-function org-publish-attachment)
          ))
 
+(defun open-org-notes ()
+  (interactive)
+  (find-file "/home/charged/org/life.org"))
+
+(map! :leader "o d" #'open-org-notes)
+
 (require 'org-auto-tangle)
 (add-hook 'org-mode-hook 'org-auto-tangle-mode)
 
