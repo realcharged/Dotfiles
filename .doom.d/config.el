@@ -46,6 +46,17 @@
       ;; erc-auto-query 'bury
       )
 
+(require 'exwm)
+(require 'exwm-config)
+(exwm-config-default)
+(require 'exwm-systemtray)
+(exwm-systemtray-enable)
+;; (require 'exwm-randr)
+
+(setq exwm-workspace-number 10
+      exwm-input-prefix-keys '(?\M-x))
+;;       exwm-input-global-keys '([?\s-d] . dmenu))
+
 (setq user-full-name "Charged"
       user-mail-address "someonesomething800@gmail.com")
 

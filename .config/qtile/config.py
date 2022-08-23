@@ -40,6 +40,9 @@ keys = [
     Key([mod], "d", lazy.spawn("rofi -show drun"), desc="Launch rofi"),
     Key([mod], "r", lazy.spawn("rofi -show run"), desc="Launch rofi in a dmenu style"),
     Key([mod], "l", lazy.spawn("systemctl suspend"), desc="Suspends device"),
+    # Key([], "XF86AudioLowerVolume", lazy.spawn("pactl set-sink-volume @DEFAULT_SINK@ -10%"), desc="Lowers volume"),
+    Key([], 'XF86AudioLowerVolume', lazy.spawn('amixer sset Master,0 5%-')),
+    Key([], 'XF86AudioRaiseVolume', lazy.spawn('amixer sset Master,0 5%+')),
     Key([mod, "shift"], "space", lazy.window.toggle_floating(), desc="Switch between floating and tiling."),
 ]
 
@@ -234,7 +237,8 @@ screens = [
                        foreground = colors[7],
                        background = colors[0],
                        fmt = 'Vol: {}',
-                       padding = 5
+                       padding = 5,
+                       volume_down_command="XF86AudioLowerVolume"
                        ),
              widget.TextBox(
                        text = '|',
