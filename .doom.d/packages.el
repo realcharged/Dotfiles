@@ -73,7 +73,6 @@
 (package! rainbow-mode)
 (package! resize-window)
 (package! tldr)
-(package! wc-mode)
 (package! beacon)
 (package! clippy)
 (package! minimap)
@@ -81,3 +80,4 @@
 (package! erc)
 (package! quelpa)
 (package! quelpa-use-package)
+(package! wc-mode)

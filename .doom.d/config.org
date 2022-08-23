@@ -33,8 +33,10 @@ Personal configuration file written by Charged for Doom Emacs.
   - [[#org-directories][Org directories]]
   - [[#org-fonts][Org Fonts]]
   - [[#org-superstar][Org Superstar]]
+  - [[#prettify-symbols][Prettify Symbols]]
 - [[#quelpa][Quelpa]]
 - [[#rainbow-mode][Rainbow mode]]
+- [[#remote-editing][Remote editing]]
 
 * About this config
 Welcome! This is my Doom Emacs config.
@@ -316,6 +318,40 @@ This makes our org bullets look nice.
 (add-hook 'org-mode-hook (lambda () (org-superstar-mode 1)))
 #+end_src
 
+** Prettify Symbols
+I'm testing this out, it replaces words with symbols, which is cool.
+#+begin_src elisp
+;; (defun org-icons ()
+;;    "Beautify org mode keywords."
+;;    (setq prettify-symbols-alist '(("TODO" . "")
+;;    		  ("WAIT" . "")
+;;    		  ("NOPE" . "")
+;; 				  ("DONE" . "")
+;; 				  ("[#A]" . "")
+;; 				  ("[#B]" . "")
+;;  				  ("[#C]" . "")
+;; 				  ("[ ]" . "")
+;; 				  ("[X]" . "")
+;; 				  ("[-]" . "")
+;; 				  ("#+BEGIN_SRC" . "")
+;; 				  ("#+END_SRC" . "―")
+;; 				  (":PROPERTIES:" . "")
+;; 				  (":END:" . "―")
+;; 				  ("#+STARTUP:" . "")
+;; 				  ("#+TITLE: " . "")
+;; 				  ("#+RESULTS:" . "")
+;; 				  ("#+NAME:" . "")
+;; 				  ("#+ROAM_TAGS:" . "")
+;; 				  ("#+FILETAGS:" . "")
+;; 				  ("#+HTML_HEAD:" . "")
+;; 				  ("#+SUBTITLE:" . "")
+;; 				  ("#+AUTHOR:" . "")
+;; 				  (":Effort:" . "")
+;; 				  ("SCHEDULED:" . "")
+;; 				  ("DEADLINE:" . "")))
+;;    (prettify-symbols-mode))
+#+end_src
+
 * Quelpa
 Quelpa is an extra repo of packages so I can install more stuff :)
 #+begin_example elisp
@@ -337,3 +373,12 @@ Allows colours to be displayed in Emacs.
 (global-rainbow-mode 1 )
 #+end_src
 
+* Remote editing
+We can edit files from another PC via SSH, here's the code I use to quickly connect to my server.
+#+begin_src elisp
+(defun connect-remote ()
+  (interactive)
+  (dired "/ssh:192.168.0.184:/home/charged/"))
+
+(map! :leader "e s" #'connect-remote)
+#+end_src
