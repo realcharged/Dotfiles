@@ -268,7 +268,12 @@ for file in $__fish_config_dir/conf.d/*.fish $__fish_sysconf_dir/conf.d/*.fish $
     and source $file
 end
 
+# CHDE REPO DIRECTORY
 set REPODIR "/home/charged/CHDE/chde-repo/x86_64/"
+
+#####################################
+########## CUSTOM STARTUPS ##########
+#####################################
 
 colorscript random
 set fish_greeting
@@ -323,3 +328,12 @@ alias push="git push"
 alias update-repo="repo-add chde-repo.db.tar.gz *.pkg.tar.zst"
 alias clean="rm -rf chde-configs/ pkg src"
 alias rn="rm chde-repo.db chde-repo.files;mv chde-repo.db.tar.gz chde-repo.db; mv chde-repo.files.tar.gz chde-repo.files"
+
+# Dotfiles
+alias d="/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME"
+alias dls="config ls-tree --full-tree -r --name-only HEAD"
+alias da="d add -u"
+alias dc="d commit -m"
+alias dp="d push"
+alias ds="d status"
+alias drm="d restore --staged"

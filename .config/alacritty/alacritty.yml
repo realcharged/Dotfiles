@@ -10,7 +10,7 @@
 # To change opacity of the background, edit below.
 
 window:
-  opacity: 0.95
+  opacity: 0.99
 
 colors:
   primary:

@@ -337,7 +337,6 @@ screens = [
                        background = colors[0],
                        fmt = 'Vol: {}',
                        padding = 5,
-                       volume_down_command="XF86AudioLowerVolume"
                        ),
              widget.TextBox(
                        text = '|',
