@@ -185,25 +185,25 @@ EXWM, or Emacs X Window Manager, is a tiling window manager for X11, which allow
 ** Basic Functionality
 Making EXWM work.
 #+begin_src elisp
-(require 'exwm)
-(require 'exwm-config)
-(exwm-config-default)
-(require 'exwm-systemtray)
-(exwm-systemtray-enable)
-;; (require 'exwm-randr)
+;; (require 'exwm)
+;; (require 'exwm-config)
+;; (exwm-config-default)
+;; (require 'exwm-systemtray)
+;; (exwm-systemtray-enable)
+;; ;; (require 'exwm-randr)
 
-(setq exwm-input-global-keys
-      `(([?\s-r] . exwm-reset)
-        ([?\s-w] . exwm-workspace-switch)
-        ([?\s-d] . dmenu)
-        ,@(mapcar (lambda (i)
-                    `(,(kbd (format "s-%d" i)) .
-                      (lambda ()
-                        (interactive)
-                        (exwm-workspace-switch-create ,i))))
-                  (number-sequence 0 9))))
+;; (setq exwm-input-global-keys
+;;       `(([?\s-r] . exwm-reset)
+;;         ([?\s-w] . exwm-workspace-switch)
+;;         ([?\s-d] . dmenu)
+;;         ,@(mapcar (lambda (i)
+;;                     `(,(kbd (format "s-%d" i)) .
+;;                       (lambda ()
+;;                         (interactive)
+;;                         (exwm-workspace-switch-create ,i))))
+;;                   (number-sequence 0 9))))
 
-(exwm-enable)
+;; (exwm-enable)
 #+end_src
 
 ** Logging Out

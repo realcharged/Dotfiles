@@ -46,25 +46,25 @@
       ;; erc-auto-query 'bury
       )
 
-(require 'exwm)
-(require 'exwm-config)
-(exwm-config-default)
-(require 'exwm-systemtray)
-(exwm-systemtray-enable)
-;; (require 'exwm-randr)
+;; (require 'exwm)
+;; (require 'exwm-config)
+;; (exwm-config-default)
+;; (require 'exwm-systemtray)
+;; (exwm-systemtray-enable)
+;; ;; (require 'exwm-randr)
 
-(setq exwm-input-global-keys
-      `(([?\s-r] . exwm-reset)
-        ([?\s-w] . exwm-workspace-switch)
-        ([?\s-d] . dmenu)
-        ,@(mapcar (lambda (i)
-                    `(,(kbd (format "s-%d" i)) .
-                      (lambda ()
-                        (interactive)
-                        (exwm-workspace-switch-create ,i))))
-                  (number-sequence 0 9))))
+;; (setq exwm-input-global-keys
+;;       `(([?\s-r] . exwm-reset)
+;;         ([?\s-w] . exwm-workspace-switch)
+;;         ([?\s-d] . dmenu)
+;;         ,@(mapcar (lambda (i)
+;;                     `(,(kbd (format "s-%d" i)) .
+;;                       (lambda ()
+;;                         (interactive)
+;;                         (exwm-workspace-switch-create ,i))))
+;;                   (number-sequence 0 9))))
 
-(exwm-enable)
+;; (exwm-enable)
 
 (defun exwm-logout ()
   (interactive)
