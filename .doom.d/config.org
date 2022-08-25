@@ -41,6 +41,7 @@ Personal configuration file written by Charged for Doom Emacs.
 - [[#quelpa][Quelpa]]
 - [[#rainbow-mode][Rainbow mode]]
 - [[#remote-editing][Remote editing]]
+- [[#smooth-scrolling][Smooth scrolling]]
 
 * About this config
 Welcome! This is my Doom Emacs config.
@@ -432,4 +433,10 @@ We can edit files from another PC via SSH, here's the code I use to quickly conn
   (dired "/ssh:192.168.0.184:/home/charged/"))
 
 (map! :leader "e s" #'connect-remote)
+#+end_src
+
+* Smooth scrolling
+Emacs scrolling sucks, we need to fix this.
+#+begin_src elisp
+(good-scroll-mode 1)
 #+end_src

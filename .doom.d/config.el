@@ -187,3 +187,5 @@
   (dired "/ssh:192.168.0.184:/home/charged/"))
 
 (map! :leader "e s" #'connect-remote)
+
+(good-scroll-mode 1)
