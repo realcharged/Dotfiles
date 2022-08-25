@@ -124,6 +124,10 @@ local function map(m, k, v)
     vim.keymap.set(m, k, v, { silent = true })
 end
 
+-- Zoom
+g.gui_font_default_size = 12
+
+-- Lualine
 require('lualine').setup {
   options = {
     icons_enabled = true,
@@ -207,6 +211,17 @@ return require('packer').startup(function()
   -- Colourschemes
   use 'RRethy/nvim-base16'
   use 'kyazdani42/nvim-palenight.lua'
+
+  -- Neotree
+  use {
+  "nvim-neo-tree/neo-tree.nvim",
+    branch = "v2.x",
+    requires = {
+      "nvim-lua/plenary.nvim",
+      "kyazdani42/nvim-web-devicons", -- not strictly required, but recommended
+      "MunifTanjim/nui.nvim",
+    }
+  }
 
   -- Other stuff
   use 'frazrepo/vim-rainbow'

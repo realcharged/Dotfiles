@@ -20,12 +20,16 @@ style = "bold green"
 format = "[$symbol$version]($style) "
 style = "bold green"
 
-[time]
-time_format = "%T"
-format = "🕙 $time($style) "
-style = "bright-white"
-disabled = true
+#[time]
+#time_format = "%T"
+#format = "🕙 $time($style) "
+#style = "bright-white"
+#disabled = true
 
-[username]
-style_user = "bold dimmed purple"
-show_always = true
+#[username]
+#style_user = "bold dimmed purple"
+#show_always = true
+
+# Replace the "❯" symbol in the prompt with "➜"
+[character]                         # The name of the module we are configuring is "character"
+success_symbol = "[>](bold green)"  # The "success_symbol" is set to "➜" with color "bold green"
