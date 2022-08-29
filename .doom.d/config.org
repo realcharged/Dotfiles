@@ -30,6 +30,7 @@ Personal configuration file written by Charged for Doom Emacs.
 - [[#modeline][Modeline]]
 - [[#mouse-support][Mouse support]]
 - [[#neotree][Neotree]]
+- [[#open-config-file][Open config file]]
 - [[#org-mode][Org Mode]]
   - [[#converting-org-to-html][Converting Org to HTML]]
   - [[#open-notes][Open Notes]]
@@ -296,6 +297,16 @@ Gives me the nice VSCode feeling!
       :desc "Open directory in neotree" "d n" #'neotree-dir)
 #+end_src
 
+* Open config file
+Doom Emacs has a shortcut to open the directory of the configs, but I want to make it quicker, because I'm lazy.
+#+begin_src elisp
+(defun open-org-config ()
+  (interactive)
+  (find-file "~/.doom.d/config.org"))
+
+(map! :leader "f o" #'open-org-config)
+#+end_src
+
 * Org Mode
 My favourite! Adding more stuff here soon
 
@@ -430,7 +441,7 @@ We can edit files from another PC via SSH, here's the code I use to quickly conn
 #+begin_src elisp
 (defun connect-remote ()
   (interactive)
-  (dired "/ssh:192.168.0.184:/home/charged/"))
+  (find-file "/ssh:192.168.0.184:/home/charged/"))
 
 (map! :leader "e s" #'connect-remote)
 #+end_src

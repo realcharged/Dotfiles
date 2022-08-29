@@ -97,6 +97,12 @@
       :desc "Toggle neotree file viewer" "t n" #'neotree-toggle
       :desc "Open directory in neotree" "d n" #'neotree-dir)
 
+(defun open-org-config ()
+  (interactive)
+  (find-file "~/.doom.d/config.org"))
+
+(map! :leader "f o" #'open-org-config)
+
 (setq org-publish-use-timestamps-flag nil)
 (setq org-export-with-broken-links t)
 (setq org-publish-project-alist
@@ -184,7 +190,7 @@
 
 (defun connect-remote ()
   (interactive)
-  (dired "/ssh:192.168.0.184:/home/charged/"))
+  (find-file "/ssh:192.168.0.184:/home/charged/"))
 
 (map! :leader "e s" #'connect-remote)
 
