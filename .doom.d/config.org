@@ -272,7 +272,7 @@ Even more VSCodey! For some reason, this does not work on Org files...
 * Modeline
 What goes at the bottom of all files!
 #+begin_src elisp
-(set-face-attribute 'mode-line nil :font "Ubuntu Mono-13")
+(set-face-attribute 'mode-line nil :font "Ubuntu Mono-16.5")
 (setq doom-modeline-persp-name t  ;; adds perspective name to modeline
       doom-modeline-persp-icon t) ;; adds folder icon next to persp name
 #+end_src
