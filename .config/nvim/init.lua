@@ -125,9 +125,9 @@ local function map(m, k, v)
 end
 
 -- Zoom
-g.gui_font_default_size = 12
+g.gui_font_default_size = 9
 
--- Lualine
+-- LUALINE
 require('lualine').setup {
   options = {
     icons_enabled = true,
@@ -226,4 +226,3 @@ return require('packer').startup(function()
   -- Other stuff
   use 'frazrepo/vim-rainbow'
 end)
-
