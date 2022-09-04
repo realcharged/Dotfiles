@@ -287,6 +287,7 @@ starship init fish | source
 alias colourscript=colorscript
 alias shell="echo $SHELL"
 alias show="clear && colourscript random"
+alias cld="rm config.def.h.rej config.def.h.orig dwm.1.rej dwm.c.rej config.h"
 
 # Emacs aliases
 alias doom="~/.emacs.d/bin/doom"
