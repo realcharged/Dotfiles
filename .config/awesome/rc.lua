@@ -1,6 +1,9 @@
 -- Dunno what this is for...
 pcall(require, "luarocks.loader")
 
+local awesome, client, mouse, screen, tag = awesome, client, mouse, screen, tag
+local ipairs, string, os, table, tostring, tonumber, type = ipairs, string, os, table, tostring, tonumber, type
+
 -- Standard awesome library
 local gears = require("gears")
 local awful = require("awful")
@@ -56,8 +59,8 @@ local themes = {
 }
 
 -- choose your theme here
-local chosen_theme = themes[1]
-local theme_path = string.format("%s/.config/awesome/themes/%s/theme.lua", os.getenv("HOME"), chosen_theme)
+local chosen_theme = powerarrow
+local theme_path = ("/home/charged/.config/awesome/themes/powerarrow/theme.lua")--,  os.getenv("HOME"), chosen_theme)
 beautiful.init(theme_path)
 
 awful.layout.layouts = {
@@ -480,6 +483,9 @@ awful.rules.rules = {
       }, properties = { titlebars_enabled = true }
     },
 }
+
+-- Gaps
+beautiful.useless_gap = 6
 
 client.connect_signal("manage", function (c)
     -- Set the windows at the slave,
