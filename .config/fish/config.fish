@@ -268,6 +268,15 @@ for file in $__fish_config_dir/conf.d/*.fish $__fish_sysconf_dir/conf.d/*.fish $
     and source $file
 end
 
+# Things not set
+set XDG_DATA_HOME "/home/charged/.local/share"
+set XDG_CONFIG_HOME "/home/charged/.config"
+set XDG_STATE_HOME "/home/charged/.local/state"
+set XDG_CACHE_HOME "/home/charged/.cache"
+
+export HISTFILE="$XDG_STATE_HOME"/bash/history
+export CUDA_CACHE_PATH="$XDG_CACHE_HOME"/nv
+
 # CHDE REPO DIRECTORY
 set REPODIR "/home/charged/CHDE/chde-repo/x86_64/"
 
@@ -287,7 +296,10 @@ starship init fish | source
 alias colourscript=colorscript
 alias shell="echo $SHELL"
 alias show="clear && colourscript random"
+
+# Suckless
 alias cld="rm config.def.h.rej config.def.h.orig dwm.1.rej dwm.c.rej config.h"
+alias cldm="rm config.def.h.rej dmenu.c.orig config.h"
 
 # Emacs aliases
 alias doom="~/.emacs.d/bin/doom"
