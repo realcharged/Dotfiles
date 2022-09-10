@@ -16,7 +16,17 @@ export XDG_STATE_HOME="/home/charged/.local/state"
 export XDG_CACHE_HOME="/home/charged/.cache"
 
 eval "$(starship init bash)"
-export HISTFILE="${XDG_STATE_HOME}"/bash/history
+
+# XDG
+export HISTFILE="$XDG_STATE_HOME"/bash/history
+export CUDA_CACHE_PATH="$XDG_CACHE_HOME"/nv
+export GNUPGHOME="$XDG_DATA_HOME"/gnupg
+export SCREENRC="$XDG_CONFIG_HOME"/screen/screenrc
+export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc
+export LESSHISTFILE="$XDG_CACHE_HOME"/less/history
+export XAUTHORITY="$XDG_RUNTIME_DIR"/Xauthority
+export ZDOTDIR="$HOME"/.config/zsh
+
 
 colorscript random
 # neofetch

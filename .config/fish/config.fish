@@ -274,6 +274,7 @@ set XDG_CONFIG_HOME "/home/charged/.config"
 set XDG_STATE_HOME "/home/charged/.local/state"
 set XDG_CACHE_HOME "/home/charged/.cache"
 
+# XDG
 export HISTFILE="$XDG_STATE_HOME"/bash/history
 export CUDA_CACHE_PATH="$XDG_CACHE_HOME"/nv
 export GNUPGHOME="$XDG_DATA_HOME"/gnupg
