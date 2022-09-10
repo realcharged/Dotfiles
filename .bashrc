@@ -11,6 +11,7 @@ alias ll='lsd -la'
 PS1='[\u@\h \W]\$ '
 
 eval "$(starship init bash)"
+export HISTFILE="${XDG_STATE_HOME}"/bash/history
 
 colorscript random
 # neofetch
