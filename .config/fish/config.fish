@@ -276,6 +276,12 @@ set XDG_CACHE_HOME "/home/charged/.cache"
 
 export HISTFILE="$XDG_STATE_HOME"/bash/history
 export CUDA_CACHE_PATH="$XDG_CACHE_HOME"/nv
+export GNUPGHOME="$XDG_DATA_HOME"/gnupg
+export SCREENRC="$XDG_CONFIG_HOME"/screen/screenrc
+export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc
+export LESSHISTFILE="$XDG_CACHE_HOME"/less/history
+export XAUTHORITY="$XDG_RUNTIME_DIR"/Xauthority
+export ZDOTDIR="$HOME"/.config/zsh
 
 # CHDE REPO DIRECTORY
 set REPODIR "/home/charged/CHDE/chde-repo/x86_64/"
