@@ -99,7 +99,7 @@
 
 (defun open-org-config ()
   (interactive)
-  (find-file "~/.doom.d/config.org"))
+  (find-file "~/.config/doom/config.org"))
 
 (map! :leader "f o" #'open-org-config)
 
