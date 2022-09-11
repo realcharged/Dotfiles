@@ -24,7 +24,7 @@ export GNUPGHOME="$XDG_DATA_HOME"/gnupg
 export SCREENRC="$XDG_CONFIG_HOME"/screen/screenrc
 export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc
 export LESSHISTFILE="$XDG_CACHE_HOME"/less/history
-export XAUTHORITY="$XDG_RUNTIME_DIR"/Xauthority
+# export XAUTHORITY="$XDG_RUNTIME_DIR"/Xauthority
 export ZDOTDIR="$HOME"/.config/zsh
 
 
