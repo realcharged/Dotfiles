@@ -1,13 +1,11 @@
--- ###########################################################################
--- ##   ____ _   _    _    ____   ____ _____ ____                           ##
--- ##  / ___| | | |  / \  |  _ \ / ___| ____|  _ \   gitlab.com/charged1/   ##
--- ## | |   | |_| | / _ \ | |_) | |  _|  _| | | | |  guilded.gg/fts/        ##
--- ## | |___|  _  |/ ___ \|  _ <| |_| | |___| |_| |  dsc.gg/freetech/       ##
--- ##  \____|_| |_/_/   \_\_| \_\\____|_____|____/                          ##
--- ##                                                                       ##
+--   ____ _   _    _    ____   ____ _____ ____
+--  / ___| | | |  / \  |  _ \ / ___| ____|  _ \   gitlab.com/charged1/
+-- | |   | |_| | / _ \ | |_) | |  _|  _| | | | |  guilded.gg/fts/
+-- | |___|  _  |/ ___ \|  _ <| |_| | |___| |_| |  dsc.gg/freetech/
+--  \____|_| |_/_/   \_\_| \_\\____|_____|____/                                                                                                 ##
 
 -- Welcome to Charged's Neovim config!
--- This configuration file is based off the below.
+-- This configuration file is based off the following.
 -- https://gitlab.com/dwt1/dotfiles/-/tree/master/.config/nvim/
 -- https://github.com/numToStr/dotfiles/tree/master/neovim/.config/nvim/
 
@@ -169,6 +167,64 @@ require('lualine').setup {
   extensions = {}
 }
 
+-- Keybindings for telescope
+map('n', '<leader>fr', '<CMD>Telescope oldfiles<CR>')
+map('n', '<leader>ff', '<CMD>Telescope find_files<CR>')
+map('n', '<leader>fb', '<CMD>Telescope file_browser<CR>')
+map('n', '<leader>fw', '<CMD>Telescope live_grep<CR>')
+map('n', '<leader>ht', '<CMD>Telescope colorscheme<CR>')
+
+-- Dashboard
+local db = require('dashboard')
+local home = os.getenv('HOME')
+
+db.default_banner = {
+  '',
+  '',
+  ' ███╗   ██╗ ███████╗ ██████╗  ██╗   ██╗ ██╗ ███╗   ███╗',
+  ' ████╗  ██║ ██╔════╝██╔═══██╗ ██║   ██║ ██║ ████╗ ████║',
+  ' ██╔██╗ ██║ █████╗  ██║   ██║ ██║   ██║ ██║ ██╔████╔██║',
+  ' ██║╚██╗██║ ██╔══╝  ██║   ██║ ╚██╗ ██╔╝ ██║ ██║╚██╔╝██║',
+  ' ██║ ╚████║ ███████╗╚██████╔╝  ╚████╔╝  ██║ ██║ ╚═╝ ██║',
+  ' ╚═╝  ╚═══╝ ╚══════╝ ╚═════╝    ╚═══╝   ╚═╝ ╚═╝     ╚═╝',
+  '',
+  ' [ TIP: If you use Neovim, you should check out Emacs. ] ',
+  '',
+}
+-- linux
+--db.preview_command = 'ueberzug'
+--
+--db.preview_file_path = home .. '/.config/nvim/static/neovim.cat'
+db.preview_file_height = 11
+db.preview_file_width = 70
+db.custom_center = {
+    {icon = '  ',
+    desc = 'Recent sessions                         ',
+    shortcut = 'SPC s l',
+    action ='SessionLoad'},
+    {icon = '  ',
+    desc = 'Find recent files                       ',
+    action = 'Telescope oldfiles',
+    shortcut = 'SPC f r'},
+    {icon = '  ',
+    desc = 'Find files                              ',
+    action = 'Telescope find_files find_command=rg,--hidden,--files',
+    shortcut = 'SPC f f'},
+    {icon = '  ',
+    desc ='File browser                            ',
+    action =  'Telescope file_browser',
+    shortcut = 'SPC f b'},
+    {icon = '  ',
+    desc = 'Find word                               ',
+    action = 'Telescope live_grep',
+    shortcut = 'SPC f w'},
+    {icon = '  ',
+    desc = 'Load new theme                          ',
+    action = 'Telescope colorscheme',
+    shortcut = 'SPC h t'},
+  }
+db.custom_footer = { '', '🎉 If I\'m using Neovim, then my Emacs config must be broken!' }
+
 -- PLUGINS
 -- Only required if you have packer configured as `opt`
 -- vim.cmd [[packadd packer.nvim]]
@@ -221,6 +277,90 @@ return require('packer').startup(function()
       "kyazdani42/nvim-web-devicons", -- not strictly required, but recommended
       "MunifTanjim/nui.nvim",
     }
+  }
+
+  use {
+    'NTBBloodbath/doom-one.nvim',
+    setup = function()
+        -- Add color to cursor
+		vim.g.doom_one_cursor_coloring = false
+		-- Set :terminal colors
+		vim.g.doom_one_terminal_colors = true
+		-- Enable italic comments
+		vim.g.doom_one_italic_comments = false
+		-- Enable TS support
+		vim.g.doom_one_enable_treesitter = true
+		-- Color whole diagnostic text or only underline
+        vim.g.doom_one_diagnostics_text_color = false
+		-- Enable transparent background
+		vim.g.doom_one_transparent_background = false
+
+        -- Pumblend transparency
+		vim.g.doom_one_pumblend_enable = false
+		vim.g.doom_one_pumblend_transparency = 20
+
+        -- Plugins integration
+		vim.g.doom_one_plugin_neorg = true
+		vim.g.doom_one_plugin_barbar = false
+		vim.g.doom_one_plugin_telescope = false
+		vim.g.doom_one_plugin_neogit = true
+		g.doom_one_plugin_nvim_tree = true
+		g.doom_one_plugin_dashboard = true
+		g.doom_one_plugin_startify = true
+		g.doom_one_plugin_whichkey = true
+		g.doom_one_plugin_indent_blankline = true
+		g.doom_one_plugin_vim_illuminate = true
+		g.doom_one_plugin_lspsaga = false
+	end,
+	config = function()
+        vim.cmd("colorscheme doom-one")
+    end,
+  }
+
+  -- Dashboard
+  use 'glepnir/dashboard-nvim'
+
+  -- Telescope and related plugins --
+  use {
+    'nvim-telescope/telescope.nvim', tag = '0.1.0',
+    requires = { {'nvim-lua/plenary.nvim'} }
+  }
+
+  use { "nvim-telescope/telescope-file-browser.nvim",
+        config = function()
+        require("telescope").setup {
+          extensions = {
+            file_browser = {
+              theme = "ivy",
+              -- disables netrw and use telescope-file-browser in its place
+              hijack_netrw = true,
+              mappings = {
+                ["i"] = {
+                  -- your custom insert mode mappings
+                },
+                ["n"] = {
+                  -- your custom normal mode mappings
+                },
+              },
+            },
+          },
+        }
+        end
+  }
+  -- To get telescope-file-browser loaded and working with telescope,
+  -- you need to call load_extension, somewhere after setup function:
+  require("telescope").load_extension "file_browser"
+
+  -- Which key
+  use {
+  "folke/which-key.nvim",
+  config = function()
+    require("which-key").setup {
+      -- your configuration comes here
+      -- or leave it empty to use the default settings
+      -- refer to the configuration section below
+    }
+  end
   }
 
   -- Other stuff
