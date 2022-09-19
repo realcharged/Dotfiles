@@ -50,20 +50,20 @@ These are some of the configs I have on this repo.
 + Terminator
 
 ** Shells
-+ Bash
-+ Fish
-+ Zsh
-+ Starship (Shell prompt)
++ [[.bashrc][Bash]]
++ [[.config/fish/][Fish]]
++ [[.config/zsh/][Zsh]]
++ [[.config/starship.toml][Starship]] (Shell prompt)
 
 ** Text Editors
 + [[.config/doom/][Doom Emacs]]
-+ GNU Emacs
-+ NeoVim
++ [[.emacs.d.gnu/][GNU Emacs]]
++ [[.config/nvim/][Neovim]]
 
 ** Other configs
-+ Neofetch
-+ Rofi
-+ Picom
++ [[.config/neofetch/][Neofetch]]
++ [[.config/rofi/][Rofi]]
++ [[.config/picom.conf][Picom]]
 
 * License
 This repo uses the MIT License. License is stored [[https://gitlab.com/charged1/dotfiles/-/blob/master/LICENSE][here]].
