@@ -56,7 +56,7 @@ These are some of the configs I have on this repo.
 + Starship (Shell prompt)
 
 ** Text Editors
-+ Doom Emacs
++ [[.config/doom/][Doom Emacs]]
 + GNU Emacs
 + NeoVim
 
