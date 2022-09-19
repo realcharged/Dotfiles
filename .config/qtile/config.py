@@ -10,7 +10,7 @@ from libqtile.utils import guess_terminal
 # Variables - Change variable mod to 'mod1' if you prefer alt over super.
 mod = "mod4"
 # Change this terminal to the one of your choice, if guess does not work for you.
-terminal = "kitty -o font.size=8"
+terminal = "kitty"
 
 keys = [
     Key([mod], "h", lazy.layout.left(), desc="Move focus to left"),
