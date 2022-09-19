@@ -11,6 +11,7 @@ This repository contains my personal dotfiles. You may face issues as not everyo
   - [[#window-managers][Window Managers]]
   - [[#terminals][Terminals]]
   - [[#shells][Shells]]
+  - [[#text-editors][Text Editors]]
   - [[#other-configs][Other configs]]
 - [[#license][License]]
 
@@ -54,11 +55,15 @@ These are some of the configs I have on this repo.
 + Zsh
 + Starship (Shell prompt)
 
+** Text Editors
++ Doom Emacs
++ GNU Emacs
++ NeoVim
+
 ** Other configs
 + Neofetch
 + Rofi
 + Picom
-+ Doom Emacs
 
 * License
 This repo uses the MIT License. License is stored [[https://gitlab.com/charged1/dotfiles/-/blob/master/LICENSE][here]].
