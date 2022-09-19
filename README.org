@@ -41,13 +41,13 @@ I completely restarted my Dotfiles repo because I used to use the symlink method
 These are some of the configs I have on this repo.
 
 ** Window Managers
-+ Qtile
-+ i3
-+ Awesome
++ [[.config/qtile][Qtile]]
++ [[.config/i3/][i3]]
++ [[.config/awesome/][Awesome]]
 
 ** Terminals
-+ Alacritty
-+ Terminator
++ [[.config/alacritty][Alacritty]]
++ [[.config/kitty][Kitty]]
 
 ** Shells
 + [[.bashrc][Bash]]
