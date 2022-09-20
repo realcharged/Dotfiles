@@ -307,6 +307,8 @@ alias show="clear && colourscript random"
 # Suckless
 alias cld="rm config.def.h.rej config.def.h.orig dwm.1.rej dwm.c.rej config.h"
 alias cldm="rm config.def.h.rej dmenu.c.orig config.h"
+alias clds="rm config.def.h.rej st.c.orig config.h"
+alias st="st -z 18"
 
 # Emacs aliases
 alias doom="~/.emacs.d/bin/doom"

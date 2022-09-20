@@ -80,7 +80,7 @@ Uses the Super (Windows) key as default. Change Alacritty to the terminal of you
 # Variables - Change variable mod to 'mod1' if you prefer alt over super.
 mod = "mod4"
 # Change this terminal to the one of your choice, if guess does not work for you.
-terminal = "kitty"
+terminal = "st -z 18"
 #+end_src
 
 * Important Keybindings
