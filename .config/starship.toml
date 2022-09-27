@@ -20,6 +20,9 @@ style = "bold green"
 format = "[$symbol$version]($style) "
 style = "bold green"
 
+[line_break]
+disabled = true
+
 #[time]
 #time_format = "%T"
 #format = "🕙 $time($style) "
