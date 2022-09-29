@@ -12,6 +12,7 @@ mod = "mod4"
 # Change this terminal to the one of your choice, if guess does not work for you.
 terminal = "st -z 18"
 
+# START_KEYS
 keys = [
     Key([mod], "h", lazy.layout.left(), desc="Move focus to left"),
     Key([mod], "j", lazy.layout.down(), desc="Move focus down"),
@@ -45,6 +46,7 @@ keys = [
     Key([mod, "shift"], "space", lazy.window.toggle_floating(), desc="Switch between floating and tiling."),
     Key([mod], "b", lazy.spawn(f"{terminal} -e btop"), desc="Launch btop"),
 ]
+# END_KEYS
 
 # These are the group (workspace) names, you may change them to your liking.
 def init_group_names():

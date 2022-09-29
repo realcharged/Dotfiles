@@ -21,7 +21,7 @@ set REPODIR "/home/charged/CHDE/chde-repo/x86_64/"
 ########## CUSTOM STARTUPS ##########
 #####################################
 
-colorscript random
+# colorscript random
 set fish_greeting
 starship init fish | source
 

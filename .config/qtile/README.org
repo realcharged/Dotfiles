@@ -97,6 +97,7 @@ terminal = "st -z 18"
 | Modkey + E             | Opens DOOM Emacs.           |
 | Modkey + B             | Opens btop (system monitor) |
 #+begin_src python
+# START_KEYS
 keys = [
     Key([mod], "h", lazy.layout.left(), desc="Move focus to left"),
     Key([mod], "j", lazy.layout.down(), desc="Move focus down"),
@@ -130,6 +131,7 @@ keys = [
     Key([mod, "shift"], "space", lazy.window.toggle_floating(), desc="Switch between floating and tiling."),
     Key([mod], "b", lazy.spawn(f"{terminal} -e btop"), desc="Launch btop"),
 ]
+# END_KEYS
 #+end_src
 
 
