@@ -3,4 +3,4 @@ configuration {
  font: "hack 10";
  combi-modi: "window,drun,ssh";
 }
-@theme "~/.config/rofi/themes/dmenu.rasi"
+@theme "~/.config/rofi/themes/center.rasi"

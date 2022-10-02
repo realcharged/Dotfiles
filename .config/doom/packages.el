@@ -83,3 +83,4 @@
 (package! quelpa-use-package)
 (package! wc-mode)
 (package! good-scroll)
+(package! elpher)
