@@ -44,6 +44,7 @@ These are some of the configs I have on this repo.
 + [[.config/qtile][Qtile]]
 + [[.config/i3/][i3]]
 + [[.config/awesome/][Awesome]]
++ [[.config/openbox/][Openbox]]
 
 ** Terminals
 + [[.config/alacritty][Alacritty]]
