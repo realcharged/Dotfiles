@@ -90,8 +90,8 @@ Modkey = Windows/Super key
 | Modkey + L             | Suspends and Locks device |
 | Modkey + Enter/Return  | Opens the set terminal.   |
 #+BEGIN_SRC bash
-# start a terminal, change 'alacritty' to the terminal of your choice
-bindsym $mod+Return exec alacritty
+# start a terminal, change 'st -z 18' to the terminal of your choice
+bindsym $mod+Return exec st -z 18
 
 # Brightness Keys
 bindsym $mod+b+u exec brightnessctl set +10%
@@ -253,38 +253,38 @@ mode "resize" {
 * Bar, Borders & Gaps
 #+BEGIN_SRC bash
 # Config for bumblebee-status, more info on README.
-bar {
-	status_command bumblebee-status -m title cpu memory battery time \
-		pasink pasource -p time.format="%H:%M" -t iceberg-dark-powerline
-	position top
+# bar {
+# 	status_command bumblebee-status -m title cpu memory battery time \
+# 		pasink pasource -p time.format="%H:%M" -t iceberg-dark-powerline
+# 	position top
 
- colors {
-        background #1b0047
-        statusline #ffffff
-        separator #666666
+#  colors {
+#         background #1b0047
+#         statusline #ffffff
+#         separator #666666
 
-        # Border  Bg      Text
-        focused_workspace  #1b0047 #1b0047 #ffffff
-        active_workspace   #333333 #333333 #ffffff
-        inactive_workspace #1b0047 #1b0047 #888888
-        urgent_workspace   #2f343a #900000 #ffffff
-        binding_mode       #2f343a #900000 #ffffff
-    }
-}
+#         # Border  Bg      Text
+#         focused_workspace  #1b0047 #1b0047 #ffffff
+#         active_workspace   #333333 #333333 #ffffff
+#         inactive_workspace #1b0047 #1b0047 #888888
+#         urgent_workspace   #2f343a #900000 #ffffff
+#         binding_mode       #2f343a #900000 #ffffff
+#     }
+# }
 
 # Colours
 
 # class                 border  backgr. text    indicator child_border
-client.focused          #ffffff #ffffff #ffffff #ffffff   #ffffff
+client.focused          #c678dd #c678dd #c678dd #c678dd   #c678dd
 client.focused_inactive #3c3836 #3c3836 #3c3836 #3c3836   #3c3836
 client.unfocused        #3c3836 #3c3836 #3c3836 #3c3836   #3c3836
-client.urgent           #2f343a #900000 #ffffff #900000   #900000
-client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
+client.urgent           #2f343a #900000 #c678dd #900000   #900000
+client.placeholder      #000000 #0c0c0c #c678dd #000000   #0c0c0c
 
-client.background       #ffffff
+client.background       #c678dd
 
 # Gaps
-gaps inner 15
+gaps inner 13
 #+END_SRC
 
 * Autostart (Custom)
@@ -293,6 +293,9 @@ gaps inner 15
 
 # Wallpaper
 exec_always nitrogen --restore
+
+# Polybar
+exec_always ~/.config/polybar/launch.sh
 
 # No Window Titles
 for_window [class="^.*"] border pixel 1
