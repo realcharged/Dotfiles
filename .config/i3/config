@@ -237,5 +237,11 @@ exec_always picom
 # Autotiling
 exec_always --no-startup-id autotiling
 
+# Notifications
+exec --no-startup-id dunst
+
+# Clipboard
+exec --no-startup-id xfce4-clipman
+
 # Emacs daemon
 exec_always /usr/bin/emacs --daemon
