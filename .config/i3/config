@@ -101,7 +101,7 @@ bindsym $mod+w layout tabbed
 # bindsym $mod+e layout toggle split
 
 # system monitor
-bindsym $mod+esc exec systemmonitor
+bindsym $mod+b exec st -e btop
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
@@ -157,7 +157,7 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+q exec "killall i3"
+bindsym $mod+Shift+q exec "archlinux-logout"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
