@@ -48,10 +48,10 @@ bindsym $mod+r exec rofi -show run
 bindsym $mod+g exec killall guilded && guilded
 
 # Lock and Suspend Screen
-bindsym $mod+l exec i3lock && systemctl suspend
+bindsym $mod+j exec i3lock && systemctl suspend
 
 # Suspend, but not lock
-bindsym $mod+j exec systemctl suspend
+bindsym $mod+l exec systemctl suspend
 
 # kill focused window
 bindsym $mod+q kill
@@ -101,7 +101,7 @@ bindsym $mod+w layout tabbed
 # bindsym $mod+e layout toggle split
 
 # system monitor
-bindsym $mod+b exec st -e btop
+# bindsym $mod+b exec st -e btop
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
