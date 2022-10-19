@@ -140,13 +140,13 @@ keys = [
 # These are the group (workspace) names, you may change them to your liking.
 def init_group_names():
     return [("WWW", {'layout': 'monadtall'}),
-            ("GEM", {'layout': 'monadtall'}),
             ("DEV", {'layout': 'monadtall'}),
             ("SYS", {'layout': 'monadtall'}),
             ("DOC", {'layout': 'monadtall'}),
             ("VBOX", {'layout': 'monadtall'}),
             ("CHAT", {'layout': 'monadtall'}),
             ("MUS", {'layout': 'monadtall'}),
+            ("VID", {'layout': 'monadtall'}),
             ("GFX", {'layout': 'monadtall'})]
 
 def init_groups():
