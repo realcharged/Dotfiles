@@ -17,6 +17,7 @@
         <value type="int" value="3"/>
         <value type="int" value="5"/>
         <value type="int" value="6"/>
+        <value type="int" value="4"/>
         <value type="int" value="9"/>
         <value type="int" value="10"/>
         <value type="int" value="12"/>
@@ -47,6 +48,7 @@
     <property name="plugin-6" type="string" value="systray">
       <property name="square-icons" type="bool" value="true"/>
       <property name="known-legacy-items" type="array">
+        <value type="string" value="wi-fi network connection “subrata mesh” active: subrata mesh (72%)"/>
         <value type="string" value="networkmanager applet"/>
         <value type="string" value="wi-fi network connection “subrata mesh” active: subrata mesh (60%)"/>
         <value type="string" value="wi-fi network connection “subrata mesh” active: subrata mesh (62%)"/>
@@ -79,6 +81,10 @@
       <property name="mode" type="uint" value="2"/>
       <property name="tooltip-format" type="string" value="%x"/>
       <property name="digital-format" type="string" value="%_H:%M"/>
+    </property>
+    <property name="plugin-4" type="string" value="pulseaudio">
+      <property name="enable-keyboard-shortcuts" type="bool" value="true"/>
+      <property name="mpris-players" type="string" value="chromium.instance3940"/>
     </property>
   </property>
 </channel>
