@@ -60,7 +60,7 @@
       <property name="&lt;Super&gt;e" type="string" value="thunar"/>
       <property name="&lt;Super&gt;c" type="string" value="picom_toggle"/>
       <property name="&lt;Super&gt;d" type="string" value="rofi -show drun"/>
-      <property name="&lt;Super&gt;l" type="string" value="i3lock-everblush"/>
+      <property name="&lt;Super&gt;l" type="string" value="i3lock-everblush &amp;&amp; systemctl suspend"/>
     </property>
   </property>
   <property name="xfwm4" type="empty">
@@ -104,6 +104,7 @@
       <property name="&lt;Primary&gt;&lt;Alt&gt;Right" type="empty"/>
       <property name="&lt;Primary&gt;&lt;Alt&gt;d" type="empty"/>
       <property name="&lt;Primary&gt;&lt;Alt&gt;Up" type="empty"/>
+      <property name="&lt;Super&gt;Tab" type="empty"/>
       <property name="&lt;Primary&gt;F1" type="empty"/>
       <property name="&lt;Primary&gt;F2" type="empty"/>
       <property name="&lt;Primary&gt;F3" type="empty"/>
@@ -240,7 +241,6 @@
       <property name="&lt;Super&gt;7" type="string" value="workspace_7_key"/>
       <property name="&lt;Super&gt;8" type="string" value="workspace_8_key"/>
       <property name="&lt;Super&gt;9" type="string" value="workspace_9_key"/>
-      <property name="&lt;Alt&gt;Tab" type="string" value="cycle_windows_key"/>
       <property name="&lt;Alt&gt;Tab" type="string" value="switch_window_key"/>
       <property name="&lt;Primary&gt;&lt;Alt&gt;Left" type="string" value="left_workspace_key"/>
       <property name="&lt;Primary&gt;&lt;Alt&gt;Right" type="string" value="right_workspace_key"/>
