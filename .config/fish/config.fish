@@ -304,6 +304,10 @@ alias colourscript=colorscript
 alias shell="echo $SHELL"
 alias show="clear && colourscript random"
 
+# System
+alias sp="systemctl suspend"
+alias rb="sudo reboot"
+
 # Suckless
 alias cld="rm config.def.h.rej config.def.h.orig dwm.1.rej dwm.c.rej config.h"
 alias cldm="rm config.def.h.rej dmenu.c.orig config.h"

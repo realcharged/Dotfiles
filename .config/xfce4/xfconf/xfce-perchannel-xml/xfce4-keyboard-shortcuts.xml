@@ -57,10 +57,11 @@
       <property name="XF86Calculator" type="string" value="galculator"/>
       <property name="&lt;Super&gt;Return" type="string" value="exo-open --launch TerminalEmulator"/>
       <property name="&lt;Primary&gt;&lt;Alt&gt;s" type="string" value="xfce4-screenshooter"/>
-      <property name="&lt;Super&gt;e" type="string" value="thunar"/>
       <property name="&lt;Super&gt;c" type="string" value="picom_toggle"/>
       <property name="&lt;Super&gt;d" type="string" value="rofi -show drun"/>
       <property name="&lt;Super&gt;l" type="string" value="i3lock-everblush &amp;&amp; systemctl suspend"/>
+      <property name="&lt;Super&gt;e" type="string" value="emacsclient --create-frame --alternate-editor="/>
+      <property name="&lt;Super&gt;s" type="string" value="spectacle"/>
     </property>
   </property>
   <property name="xfwm4" type="empty">
@@ -205,17 +206,8 @@
       <property name="&lt;Alt&gt;F6" type="string" value="stick_window_key"/>
       <property name="&lt;Alt&gt;F7" type="string" value="move_window_key"/>
       <property name="&lt;Control&gt;&lt;Shift&gt;&lt;Alt&gt;Up" type="string" value="move_window_up_key"/>
-      <property name="&lt;Alt&gt;&lt;Control&gt;KP_1" type="string" value="move_window_workspace_1_key"/>
-      <property name="&lt;Alt&gt;&lt;Control&gt;KP_2" type="string" value="move_window_workspace_2_key"/>
-      <property name="&lt;Alt&gt;&lt;Control&gt;KP_3" type="string" value="move_window_workspace_3_key"/>
-      <property name="&lt;Alt&gt;&lt;Control&gt;KP_4" type="string" value="move_window_workspace_4_key"/>
-      <property name="&lt;Alt&gt;&lt;Control&gt;KP_5" type="string" value="move_window_workspace_5_key"/>
-      <property name="&lt;Alt&gt;&lt;Control&gt;KP_6" type="string" value="move_window_workspace_6_key"/>
-      <property name="&lt;Alt&gt;&lt;Control&gt;KP_7" type="string" value="move_window_workspace_7_key"/>
       <property name="&lt;Control&gt;&lt;Shift&gt;&lt;Alt&gt;Left" type="string" value="move_window_left_key"/>
       <property name="Left" type="string" value="left_key"/>
-      <property name="&lt;Alt&gt;&lt;Control&gt;KP_9" type="string" value="move_window_workspace_9_key"/>
-      <property name="&lt;Alt&gt;&lt;Control&gt;KP_8" type="string" value="move_window_workspace_8_key"/>
       <property name="Down" type="string" value="down_key"/>
       <property name="&lt;Alt&gt;&lt;Control&gt;Home" type="string" value="move_window_prev_workspace_key"/>
       <property name="&lt;Alt&gt;&lt;Control&gt;End" type="string" value="move_window_next_workspace_key"/>
@@ -226,10 +218,8 @@
       <property name="&lt;Shift&gt;&lt;Control&gt;&lt;Alt&gt;Down" type="string" value="move_window_down_workspace_key"/>
       <property name="override" type="bool" value="true"/>
       <property name="&lt;Super&gt;q" type="string" value="close_window_key"/>
-      <property name="&lt;Super&gt;Down" type="string" value="hide_window_key"/>
       <property name="&lt;Super&gt;r" type="string" value="resize_window_key"/>
       <property name="&lt;Super&gt;f" type="string" value="fullscreen_key"/>
-      <property name="&lt;Super&gt;Up" type="string" value="maximize_window_key"/>
       <property name="&lt;Super&gt;Left" type="string" value="tile_left_key"/>
       <property name="&lt;Super&gt;Right" type="string" value="tile_right_key"/>
       <property name="&lt;Super&gt;1" type="string" value="workspace_1_key"/>
@@ -241,11 +231,23 @@
       <property name="&lt;Super&gt;7" type="string" value="workspace_7_key"/>
       <property name="&lt;Super&gt;8" type="string" value="workspace_8_key"/>
       <property name="&lt;Super&gt;9" type="string" value="workspace_9_key"/>
-      <property name="&lt;Alt&gt;Tab" type="string" value="switch_window_key"/>
       <property name="&lt;Primary&gt;&lt;Alt&gt;Left" type="string" value="left_workspace_key"/>
       <property name="&lt;Primary&gt;&lt;Alt&gt;Right" type="string" value="right_workspace_key"/>
       <property name="&lt;Primary&gt;&lt;Alt&gt;Down" type="string" value="move_window_left_workspace_key"/>
       <property name="&lt;Primary&gt;&lt;Alt&gt;Up" type="string" value="move_window_right_workspace_key"/>
+      <property name="&lt;Alt&gt;Tab" type="string" value="cycle_windows_key"/>
+      <property name="&lt;Alt&gt;equal" type="string" value="maximize_window_key"/>
+      <property name="&lt;Alt&gt;minus" type="string" value="hide_window_key"/>
+      <property name="&lt;Shift&gt;&lt;Super&gt;exclam" type="string" value="move_window_workspace_1_key"/>
+      <property name="&lt;Shift&gt;&lt;Super&gt;at" type="string" value="move_window_workspace_2_key"/>
+      <property name="&lt;Shift&gt;&lt;Super&gt;numbersign" type="string" value="move_window_workspace_3_key"/>
+      <property name="&lt;Shift&gt;&lt;Super&gt;dollar" type="string" value="move_window_workspace_4_key"/>
+      <property name="&lt;Shift&gt;&lt;Super&gt;percent" type="string" value="move_window_workspace_5_key"/>
+      <property name="&lt;Shift&gt;&lt;Super&gt;asciicircum" type="string" value="move_window_workspace_6_key"/>
+      <property name="&lt;Shift&gt;&lt;Super&gt;ampersand" type="string" value="move_window_workspace_7_key"/>
+      <property name="&lt;Shift&gt;&lt;Super&gt;asterisk" type="string" value="move_window_workspace_8_key"/>
+      <property name="&lt;Shift&gt;&lt;Super&gt;parenleft" type="string" value="move_window_workspace_9_key"/>
+      <property name="&lt;Alt&gt;d" type="string" value="show_desktop_key"/>
     </property>
   </property>
   <property name="providers" type="array">
