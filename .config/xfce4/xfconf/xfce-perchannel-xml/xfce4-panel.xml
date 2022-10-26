@@ -16,6 +16,7 @@
         <value type="int" value="2"/>
         <value type="int" value="3"/>
         <value type="int" value="5"/>
+        <value type="int" value="7"/>
         <value type="int" value="6"/>
         <value type="int" value="4"/>
         <value type="int" value="9"/>
@@ -48,6 +49,10 @@
     <property name="plugin-6" type="string" value="systray">
       <property name="square-icons" type="bool" value="true"/>
       <property name="known-legacy-items" type="array">
+        <value type="string" value="wi-fi network connection “subrata mesh” active: subrata mesh (70%)"/>
+        <value type="string" value="firewall-applet"/>
+        <value type="string" value="wi-fi network connection “subrata mesh” active: subrata mesh (68%)"/>
+        <value type="string" value="wi-fi network connection “subrata mesh” active: subrata mesh (67%)"/>
         <value type="string" value="wi-fi network connection “subrata mesh” active: subrata mesh (71%)"/>
         <value type="string" value="wi-fi network connection “subrata mesh” active: subrata mesh (69%)"/>
         <value type="string" value="wi-fi network connection “subrata mesh” active: subrata mesh (74%)"/>
@@ -89,6 +94,10 @@
     <property name="plugin-4" type="string" value="pulseaudio">
       <property name="enable-keyboard-shortcuts" type="bool" value="true"/>
       <property name="mpris-players" type="string" value="chromium.instance11476;chromium.instance2327;chromium.instance2518;chromium.instance3940"/>
+    </property>
+    <property name="plugin-7" type="string" value="pager">
+      <property name="rows" type="uint" value="3"/>
+      <property name="miniature-view" type="bool" value="true"/>
     </property>
   </property>
 </channel>
