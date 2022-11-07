@@ -59,9 +59,11 @@
       <property name="&lt;Primary&gt;&lt;Alt&gt;s" type="string" value="xfce4-screenshooter"/>
       <property name="&lt;Super&gt;c" type="string" value="picom_toggle"/>
       <property name="&lt;Super&gt;d" type="string" value="rofi -show drun"/>
-      <property name="&lt;Super&gt;l" type="string" value="i3lock-everblush &amp;&amp; systemctl suspend"/>
       <property name="&lt;Super&gt;e" type="string" value="emacsclient --create-frame --alternate-editor="/>
       <property name="&lt;Super&gt;s" type="string" value="spectacle"/>
+      <property name="&lt;Super&gt;l" type="string" value="systemctl suspend"/>
+      <property name="&lt;Super&gt;r" type="string" value="rofi -show run"/>
+      <property name="&lt;Super&gt;v" type="string" value="kitty -e nvim"/>
     </property>
   </property>
   <property name="xfwm4" type="empty">
@@ -218,7 +220,6 @@
       <property name="&lt;Shift&gt;&lt;Control&gt;&lt;Alt&gt;Down" type="string" value="move_window_down_workspace_key"/>
       <property name="override" type="bool" value="true"/>
       <property name="&lt;Super&gt;q" type="string" value="close_window_key"/>
-      <property name="&lt;Super&gt;r" type="string" value="resize_window_key"/>
       <property name="&lt;Super&gt;f" type="string" value="fullscreen_key"/>
       <property name="&lt;Super&gt;Left" type="string" value="tile_left_key"/>
       <property name="&lt;Super&gt;Right" type="string" value="tile_right_key"/>

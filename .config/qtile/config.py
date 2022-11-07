@@ -113,7 +113,7 @@ colors = [["#282c34", "#282c34"],
 # Default widget settings.
 widget_defaults = dict(
     font="Ubuntu Bold",
-    fontsize = 10,
+    fontsize = 11,
     padding = 2,
     background=colors[2]
 )

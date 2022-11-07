@@ -102,8 +102,8 @@ g.maplocalleader = ' '
 -- local ok, _ = pcall(vim.cmd, 'colorscheme base16-monokai')
 -- local ok, _ = pcall(vim.cmd, 'colorscheme base16-nord')
 -- local ok, _ = pcall(vim.cmd, 'colorscheme base16-oceanicnext')
-local ok, _ = pcall(vim.cmd, 'colorscheme base16-onedark')
--- local ok, _ = pcall(vim.cmd, 'colorscheme palenight')
+-- local ok, _ = pcall(vim.cmd, 'colorscheme base16-onedark')
+local ok, _ = pcall(vim.cmd, 'colorscheme palenight')
 -- local ok, _ = pcall(vim.cmd, 'colorscheme base16-solarized-dark')
 -- local ok, _ = pcall(vim.cmd, 'colorscheme base16-solarized-light')
 -- local ok, _ = pcall(vim.cmd, 'colorscheme base16-tomorrow-night')
@@ -123,7 +123,9 @@ local function map(m, k, v)
 end
 
 -- Zoom
-g.gui_font_default_size = 9
+-- g.gui_font_default_size = 9
+o.guifont = "Jetbrains Mono"
+g.neovide_scale_factor = 0.5
 
 -- LUALINE
 require('lualine').setup {
@@ -188,7 +190,7 @@ db.default_banner = {
   ' ██║ ╚████║ ███████╗╚██████╔╝  ╚████╔╝  ██║ ██║ ╚═╝ ██║',
   ' ╚═╝  ╚═══╝ ╚══════╝ ╚═════╝    ╚═══╝   ╚═╝ ╚═╝     ╚═╝',
   '',
-  ' [ TIP: If you use Neovim, you should check out Emacs. ] ',
+  ' [ TIP: Use :q! to quit. ] ',
   '',
 }
 -- linux
@@ -279,43 +281,6 @@ return require('packer').startup(function()
     }
   }
 
-  use {
-    'NTBBloodbath/doom-one.nvim',
-    setup = function()
-        -- Add color to cursor
-		vim.g.doom_one_cursor_coloring = false
-		-- Set :terminal colors
-		vim.g.doom_one_terminal_colors = true
-		-- Enable italic comments
-		vim.g.doom_one_italic_comments = false
-		-- Enable TS support
-		vim.g.doom_one_enable_treesitter = true
-		-- Color whole diagnostic text or only underline
-        vim.g.doom_one_diagnostics_text_color = false
-		-- Enable transparent background
-		vim.g.doom_one_transparent_background = false
-
-        -- Pumblend transparency
-		vim.g.doom_one_pumblend_enable = false
-		vim.g.doom_one_pumblend_transparency = 20
-
-        -- Plugins integration
-		vim.g.doom_one_plugin_neorg = true
-		vim.g.doom_one_plugin_barbar = false
-		vim.g.doom_one_plugin_telescope = false
-		vim.g.doom_one_plugin_neogit = true
-		g.doom_one_plugin_nvim_tree = true
-		g.doom_one_plugin_dashboard = true
-		g.doom_one_plugin_startify = true
-		g.doom_one_plugin_whichkey = true
-		g.doom_one_plugin_indent_blankline = true
-		g.doom_one_plugin_vim_illuminate = true
-		g.doom_one_plugin_lspsaga = false
-	end,
-	config = function()
-        vim.cmd("colorscheme doom-one")
-    end,
-  }
 
   -- Dashboard
   use 'glepnir/dashboard-nvim'
