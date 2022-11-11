@@ -125,7 +125,7 @@ end
 -- Zoom
 -- g.gui_font_default_size = 9
 o.guifont = "Jetbrains Mono"
-g.neovide_scale_factor = 0.5
+g.neovide_scale_factor = 1
 
 -- LUALINE
 require('lualine').setup {
