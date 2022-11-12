@@ -5,14 +5,20 @@
         "folders": [
             {
                 "folderUri": "file:///home/charged/org"
+            },
+            {
+                "folderUri": "file:///home/charged"
+            },
+            {
+                "folderUri": "file:///home/charged/gl/freebot-matrix"
             }
         ],
         "emptyWindows": []
     },
     "windowsState": {
         "lastActiveWindow": {
-            "folder": "file:///home/charged/org",
-            "backupPath": "/home/charged/.config/Code/Backups/1d69ff66a11f504e7d99130504bc3fcb",
+            "folder": "file:///home/charged/gl/freebot-matrix",
+            "backupPath": "/home/charged/.config/Code/Backups/9cab8ce884a2f84d6a740210101b81ee",
             "uiState": {
                 "mode": 1,
                 "x": 13,
@@ -61,11 +67,32 @@
                             "items": [
                                 {
                                     "id": "workbench.action.reopenClosedEditor",
-                                    "label": "&&Reopen Closed Editor",
-                                    "enabled": false
+                                    "label": "&&Reopen Closed Editor"
                                 },
                                 {
                                     "id": "vscode.menubar.separator"
+                                },
+                                {
+                                    "id": "openRecentFolder",
+                                    "uri": {
+                                        "$mid": 1,
+                                        "external": "file:///home/charged/gl/freebot-matrix",
+                                        "path": "/home/charged/gl/freebot-matrix",
+                                        "scheme": "file"
+                                    },
+                                    "enabled": true,
+                                    "label": "~/gl/freebot-matrix"
+                                },
+                                {
+                                    "id": "openRecentFolder",
+                                    "uri": {
+                                        "$mid": 1,
+                                        "external": "file:///home/charged",
+                                        "path": "/home/charged",
+                                        "scheme": "file"
+                                    },
+                                    "enabled": true,
+                                    "label": "/home/charged"
                                 },
                                 {
                                     "id": "openRecentFolder",
@@ -77,6 +104,20 @@
                                     },
                                     "enabled": true,
                                     "label": "~/org"
+                                },
+                                {
+                                    "id": "vscode.menubar.separator"
+                                },
+                                {
+                                    "id": "openRecentFile",
+                                    "uri": {
+                                        "$mid": 1,
+                                        "external": "file:///home/charged/gl/FreeBot/main.py",
+                                        "path": "/home/charged/gl/FreeBot/main.py",
+                                        "scheme": "file"
+                                    },
+                                    "enabled": true,
+                                    "label": "~/gl/FreeBot/main.py"
                                 },
                                 {
                                     "id": "vscode.menubar.separator"
@@ -498,8 +539,7 @@
                                 },
                                 {
                                     "id": "editor.action.toggleMinimap",
-                                    "label": "&&Minimap",
-                                    "checked": true
+                                    "label": "&&Minimap"
                                 },
                                 {
                                     "id": "breadcrumbs.toggle",
@@ -631,6 +671,10 @@
                         "label": "E&&xtensions"
                     },
                     {
+                        "id": "workbench.view.extension.test",
+                        "label": "T&&esting"
+                    },
+                    {
                         "id": "vscode.menubar.separator"
                     },
                     {
@@ -675,8 +719,7 @@
                     },
                     {
                         "id": "workbench.action.navigateToLastEditLocation",
-                        "label": "&&Last Edit Location",
-                        "enabled": false
+                        "label": "&&Last Edit Location"
                     },
                     {
                         "id": "vscode.menubar.separator"
@@ -1313,9 +1356,9 @@
                 "userSettingsLabel": "alt+z m"
             },
             "workbench.action.toggleSidebarVisibility": {
-                "label": "Alt+T N",
+                "label": "Shift+T N",
                 "isNative": false,
-                "userSettingsLabel": "alt+t n"
+                "userSettingsLabel": "shift+t n"
             },
             "workbench.action.togglePanel": {
                 "label": "Ctrl+J",
