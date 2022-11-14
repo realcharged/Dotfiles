@@ -100,3 +100,6 @@ alias dc="d commit -m"
 alias dp="d push; d push codeberg; d push github"
 alias ds="d status"
 alias drm="d restore --staged"
+alias cysinfoo=cysinfo
+alias cysinfooo="cysinfo"
+alias cysinfo_online="curl -s https://gitlab.com/charged1/cysinfo/-/raw/main/cysinfo.sh | bash"

@@ -144,7 +144,7 @@ Why doesn't GNU Emacs have this by default? I have no idea.
 ** Doom Modeline
 #+begin_src elisp
 (use-package doom-modeline)
-(doom-modeline-mode 1)
+;;(doom-modeline-mode 1)
 #+end_src
 
 * Which Key
