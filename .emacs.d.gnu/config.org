@@ -91,7 +91,7 @@ Allows us to use Vim-like keybindings on Emacs.
 #+begin_src elisp
 (set-face-attribute 'default nil
   :font "JetBrains Mono"
-  :height 110
+  :height 155
   :weight 'medium)
 (set-face-attribute 'variable-pitch nil
   :font "Ubuntu"
@@ -144,7 +144,7 @@ Why doesn't GNU Emacs have this by default? I have no idea.
 ** Doom Modeline
 #+begin_src elisp
 (use-package doom-modeline)
-;;(doom-modeline-mode 1)
+(doom-modeline-mode 1)
 #+end_src
 
 * Which Key
@@ -183,8 +183,11 @@ Which one?
 ** Org Superstar
 Nice bullets you got there!
 #+begin_src elisp
-(use-package org-superstar)
-(add-hook 'org-mode-hook (lambda () (org-superstar-mode 1)))
+;;  (use-package org-superstar)
+;;  (add-hook 'org-mode-hook (lambda () (org-superstar-mode 1)))
+
+(use-package org-bullets)
+(add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
 #+end_src
 
 * Org auto tangle
@@ -200,7 +203,7 @@ Tangles config files on save.
     ;; Global settings (defaults)
     (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
        doom-themes-enable-italic t)) ; if nil, italics is universally disabled
-(load-theme 'doom-one)
+(load-theme 'wombat t)
 #+end_src
 
 * More keybinds
@@ -213,7 +216,7 @@ Tangles config files on save.
 	 "c c"   '(compile :which-key "Compile")
 	 "c C"   '(recompile :which-key "Recompile")
 	 "h r r" '((lambda () (interactive) (load-file "~/.emacs.d/init.el")) :which-key "Reload emacs config")
-	 "l t"   '(load-theme :which-key "Load theme")
+	 "h t"   '(load-theme :which-key "Load theme")
 	 "t t"   '(toggle-truncate-lines :which-key "Toggle truncate lines")
 	 "b k"   '(kill-current-buffer :which-key "Kill the current buffer.")
 	 "b i"   '(ibuffer :which-key "Open iBuffer"))
@@ -248,7 +251,7 @@ The built-in file manager for Emacs!
 (use-package peep-dired)
 
 (nvmap :states '(normal visual) :keymaps 'override :prefix "SPC"
-               "."   '(dired :which-key "Open dired")
+               "."   '(find-file :which-key "Open dired")
                "d j" '(dired-jump :which-key "Dired jump to current")
                "d p" '(peep-dired :which-key "Peep-dired"))
 

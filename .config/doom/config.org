@@ -52,7 +52,7 @@ Welcome! This is my Doom Emacs config.
 GNU Emacs is a text editor (really an operating system) made for GNU/Linux systems but can be used on others too. It has tons of useful features such as Org mode. I choose Emacs because it is extremely extensible and customisable.
 
 *** Why Doom Emacs?
-Doom Emacs is a distribution of Emacs with some configuration out of the box, which I believe GNU Emacs is missing. I choose Doom Emacs to save me from hours of work on this config file. Doom Emacs helps me have only what I need in this config file, rather than spending time adding basic functionality.
+Doom Emacs is a distribution of Emacs with some configuration out of the box, which I believe GNU Emacs is missing. I choose Doom Emacs to save me from hours of work on this config file. Doom Emacs helps me have only what I need in this (still giant) config file, rather than spending time adding basic functionality.
 
 ** Dependencies
 This configuration file depends on all 3 other files in this folder. Removing one of them will result in a broken config.

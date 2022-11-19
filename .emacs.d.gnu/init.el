@@ -11,7 +11,7 @@
  '(custom-safe-themes
    '("02f57ef0a20b7f61adce51445b68b2a7e832648ce2e7efb19d217b6454c1b644" default))
  '(package-selected-packages
-   '(toc-org which-key evil-tutor evil-collection emojify dashboard org-superstar javascript-mode markdown-mode lua-mode python-mode smex peep-dired dired-open all-the-icons-dired general doom-modeline doom-themes use-package))
+   '(org-bullets toc-org which-key evil-tutor evil-collection emojify dashboard org-superstar javascript-mode markdown-mode lua-mode python-mode smex peep-dired dired-open all-the-icons-dired general doom-modeline doom-themes use-package))
  '(warning-suppress-log-types '(((package reinitialization)))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
