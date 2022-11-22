@@ -303,6 +303,7 @@ starship init fish | source
 alias colourscript=colorscript
 alias shell="echo $SHELL"
 alias show="clear && colourscript random"
+alias backup="cd ~/org/; git add .; commit \"Backup\"; git push; prevd"
 
 # System
 alias sp="systemctl suspend"
