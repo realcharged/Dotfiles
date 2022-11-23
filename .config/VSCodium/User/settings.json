@@ -40,5 +40,6 @@
         ]
     },
     "window.menuBarVisibility": "toggle",
-    "editor.minimap.enabled": false
+    "editor.minimap.enabled": false,
+    "explorer.confirmDragAndDrop": false
 }
