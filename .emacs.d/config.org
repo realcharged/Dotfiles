@@ -2,6 +2,43 @@
 #+AUTHOR: Charged
 Personal configuration file written by Charged for GNU Emacs.
 
+* Table of Contents :TOC:
+- [[#about-this-config][About this config]]
+  - [[#warning][WARNING]]
+- [[#little-things][Little things]]
+  - [[#beacon-mode][Beacon Mode]]
+  - [[#good-scroll][Good scroll]]
+  - [[#line-numbers][Line numbers]]
+- [[#gui][GUI]]
+  - [[#minimal-gui][Minimal GUI]]
+  - [[#blinking-cursor][Blinking cursor]]
+  - [[#fonts][Fonts]]
+- [[#melpa-use-package][MELPA, use-package]]
+- [[#ivy][Ivy]]
+- [[#modeline][Modeline]]
+- [[#rainbow-delimiters][Rainbow delimiters]]
+- [[#which-key][Which key]]
+- [[#theme][Theme]]
+- [[#counsel-evil][Counsel, Evil]]
+- [[#keybindings][Keybindings]]
+- [[#org-mode][Org mode]]
+  - [[#org-bullets][Org bullets]]
+  - [[#fonts-1][Fonts]]
+  - [[#auto-toc][Auto TOC]]
+  - [[#extras][Extras]]
+- [[#electric-pair][Electric pair]]
+- [[#vterm][Vterm]]
+- [[#language-support][Language Support]]
+- [[#dashboard][Dashboard]]
+  - [[#dashboard-on-emacs-client][Dashboard on Emacs client]]
+- [[#emojis][Emojis]]
+- [[#erc][ERC]]
+- [[#neotree][Neotree]]
+- [[#startup-performance][Startup Performance]]
+  - [[#garbage-collection][Garbage collection]]
+  - [[#native-compile][Native Compile]]
+- [[#runtime-performance][Runtime performance]]
+
 * About this config
 GNU Emacs is a powerful, extensible text editor. It's pretty much its own operating system! I mean, what can't Emacs do? This config of mine is trying to be as much like Doom Emacs as possible, but to have Emacs work as GNU Emacs.
 
@@ -70,7 +107,8 @@ I have some basic fonts set up here.
 #+begin_src elisp
 ;; Font
 (set-face-attribute 'default nil :font "JetBrains Mono" :height 180)
-(set-face-attribute 'variable-pitch nil :font "Ubuntu Bold" :height 180 :weight 'regular)
+(set-face-attribute 'variable-pitch nil :font "Ubuntu" :height 180 :weight 'regular)
+(set-face-attribute 'fixed-pitch nil :font "JetBrains Mono" :height 180)
 #+end_src
 
 * MELPA, use-package
@@ -213,27 +251,28 @@ Again, saving my pinky.
 
 * Org mode
 I'm going to split this into many different parts, but it is one for now.
+
+** Org bullets
+Better than astericks.
 #+begin_src elisp
 ;; Org bullets
 (use-package org-bullets
   :hook (org-mode . org-bullets-mode)
   :custom
   (org-bullets-bullet-list '("◉" "○" "●" "○" "●" "○" "●")))
+#+end_src
 
+** Fonts
+Bigger fonts for headers.
+#+begin_src elisp
 ;; Bigger next on subheadings
 (custom-set-faces
-  '(org-level-1 ((t (:inherit outline-1 :height 1.5))))
+  '(org-level-1 ((t (:inherit outline-1 :height 0.5))))
   '(org-level-2 ((t (:inherit outline-2 :height 1.4))))
   '(org-level-3 ((t (:inherit outline-3 :height 1.3))))
   '(org-level-4 ((t (:inherit outline-4 :height 1.25))))
   '(org-level-5 ((t (:inherit outline-5 :height 1.2))))
 )
-
-;; Indent on subheadings
-(org-indent-mode 1)
-
-;; Stop indenting when new line is made in org src blocks
-(setq org-src-preserve-indentation t)
 
 ;; Ensure that anything that should be fixed-pitch in Org files appears that way
 (set-face-attribute 'org-block nil    :foreground nil :inherit 'fixed-pitch)
@@ -249,9 +288,170 @@ I'm going to split this into many different parts, but it is one for now.
 (set-face-attribute 'line-number-current-line nil :inherit 'fixed-pitch)
 #+end_src
 
+** Auto TOC
+Automatically create a table of contents.
+#+begin_src elisp
+(use-package toc-org
+  :commands toc-org-enable
+  :init (add-hook 'org-mode-hook 'toc-org-enable))
+
+;; Enable
+(toc-org-mode 1)
+#+end_src
+
+** Extras
+#+begin_src elisp
+;; Indent on subheadings
+(org-indent-mode 1)
+
+;; Stop indenting when new line is made in org src blocks
+(setq org-src-preserve-indentation t)
+#+end_src
+
 * Electric pair
 Simple task: Close brackets when opened.
 #+begin_src elisp
 ;; Close stuff
 (electric-pair-mode 1)
+#+end_src
+
+* Vterm
+The best terminal in Emacs.
+#+begin_src elisp
+;; (use-package vterm)
+#+end_src
+
+* Language Support
+Better support for certain languages.
+#+begin_src elisp
+(use-package python-mode)
+(use-package lua-mode)
+(use-package markdown-mode)
+#+end_src
+
+* Dashboard
+A nice screen that shows at startup.
+#+begin_src elisp
+(use-package dashboard
+  :init      ;; tweak dashboard config before loading it
+  (setq dashboard-set-heading-icons t)
+  (setq dashboard-set-file-icons t)
+  (setq dashboard-banner-logo-title "Emacs Is More Than A Text Editor!")
+  ;;(setq dashboard-startup-banner 'logo) ;; use standard emacs logo as banner
+  (setq dashboard-startup-banner "~/.emacs.d/emacs-dash.png")  ;; use custom image as banner
+  (setq dashboard-center-content nil) ;; set to 't' for centered content
+  (setq dashboard-items '((recents . 5)
+                          (agenda . 5 )
+                          (bookmarks . 3)
+                          (registers . 3)))
+  :config
+  (dashboard-setup-startup-hook)
+  (dashboard-modify-heading-icons '((recents . "file-text")
+			      (bookmarks . "book"))))
+#+end_src
+
+** Dashboard on Emacs client
+#+begin_src elisp
+(setq initial-buffer-choice (lambda () (get-buffer "*dashboard*")))
+#+end_src
+
+* Emojis
+Better emoji support.
+#+begin_src elisp
+(use-package emojify
+  :hook (after-init . global-emojify-mode))
+#+end_src
+
+* ERC
+IRC, in Emacs!
+#+begin_src elisp
+(setq erc-prompt (lambda () (concat "[" (buffer-name) "]"))
+      erc-server "irc.libera.chat"
+      erc-nick "Charged[m]"
+      erc-user-full-name "Charged"
+      erc-track-shorten-start 24
+      erc-autojoin-channels-alist '(("irc.libera.chat" "#archlinux" "#linux" "#emacs" "#awesome" "freetech studios"))
+      erc-kill-buffer-on-part t
+      erc-fill-column 100
+      erc-fill-function 'erc-fill-static
+      erc-fill-static-center 20
+      ;; erc-auto-query 'bury
+      )
+#+end_src
+
+* Neotree
+VSCode-like file viewer on the left.
+#+begin_src elisp
+(defcustom neo-window-width 25
+  "*Specifies the width of the NeoTree window."
+  :type 'integer
+  :group 'neotree)
+
+(use-package neotree
+  :config
+  (setq neo-smart-open t
+        neo-window-width 30
+        neo-theme (if (display-graphic-p) 'icons 'arrow)
+        ;;neo-window-fixed-size nil
+        inhibit-compacting-font-caches t
+        projectile-switch-project-action 'neotree-projectile-action) 
+        ;; truncate long file names in neotree
+        (add-hook 'neo-after-create-hook
+           #'(lambda (_)
+               (with-current-buffer (get-buffer neo-buffer-name)
+                 (setq truncate-lines t)
+                 (setq word-wrap nil)
+                 (make-local-variable 'auto-hscroll-mode)
+                 (setq auto-hscroll-mode nil)))))
+
+;; show hidden files
+(setq-default neo-show-hidden-files t)
+
+(nvmap :prefix "SPC"
+       "t n"   '(neotree-toggle :which-key "Toggle neotree file viewer")
+       "d n"   '(neotree-dir :which-key "Open directory in neotree"))
+#+end_src
+
+* Startup Performance
+Make Emacs load faster!
+
+** Garbage collection
+Reducing the frequency
+#+begin_src elisp
+;; Using garbage magic hack.
+ (use-package gcmh
+   :config
+   (gcmh-mode 1))
+;; Setting garbage collection threshold
+(setq gc-cons-threshold 402653184
+      gc-cons-percentage 0.6)
+
+;; Profile emacs startup
+(add-hook 'emacs-startup-hook
+          (lambda ()
+            (message "*** Emacs loaded in %s with %d garbage collections."
+                     (format "%.2f seconds"
+                             (float-time
+                              (time-subtract after-init-time before-init-time)))
+                     gcs-done)))
+
+;; Silence compiler warnings as they can be pretty disruptive (setq comp-async-report-warnings-errors nil)
+#+end_src
+
+** Native Compile
+#+begin_src elisp
+;; Silence compiler warnings as they can be pretty disruptive
+(if (boundp 'comp-deferred-compilation)
+    (setq comp-deferred-compilation nil)
+    (setq native-comp-deferred-compilation nil))
+;; In noninteractive sessions, prioritize non-byte-compiled source files to
+;; prevent the use of stale byte-code. Otherwise, it saves us a little IO time
+;; to skip the mtime checks on every *.elc file.
+(setq load-prefer-newer noninteractive)
+#+end_src
+
+* Runtime performance
+#+begin_src elisp
+;; Make gc pauses faster by decreasing the threshold.
+(setq gc-cons-threshold (* 2 1000 1000))
 #+end_src
