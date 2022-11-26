@@ -34,6 +34,7 @@ Personal configuration file written by Charged for GNU Emacs.
 - [[#emojis][Emojis]]
 - [[#erc][ERC]]
 - [[#neotree][Neotree]]
+- [[#eaf][EAF]]
 - [[#startup-performance][Startup Performance]]
   - [[#garbage-collection][Garbage collection]]
   - [[#native-compile][Native Compile]]
@@ -47,7 +48,7 @@ GNU Emacs is a powerful, extensible text editor. It's pretty much its own operat
 [[https://gitlab.com/charged1/dotfiles/-/raw/master/.screenshots/emacs/gnu-emacs.png]]
 
 ** WARNING
-This config is for GNU Emacs, not Doom Emacs. If you would like to visit that, check [[https://gitlab.com/charged1/dotfiles/-/tree/master/.doom.d][this]] out.
+This config is for GNU Emacs, not Doom Emacs. If you would like to visit that, check [[https://gitlab.com/charged1/dotfiles/-/tree/master/.config/doom/][this]] out.
 
 * Little things
 Some small things that just make our lives better.
@@ -72,6 +73,13 @@ Useful for debugging code.
 ;; Line numbers
 (column-number-mode)
 (global-display-line-numbers-mode t)
+
+(dolist (mode '(vterm-mode-hook
+                term-mode-hook
+                shell-mode-hook
+                treemacs-mode-hook
+                eshell-mode-hook))
+  (add-hook mode (lambda () (display-line-numbers-mode 0))))
 #+end_src
 
 * GUI
@@ -410,6 +418,15 @@ VSCode-like file viewer on the left.
 (nvmap :prefix "SPC"
        "t n"   '(neotree-toggle :which-key "Toggle neotree file viewer")
        "d n"   '(neotree-dir :which-key "Open directory in neotree"))
+#+end_src
+
+* EAF
+#+begin_src elisp
+(add-to-list 'load-path "~/.emacs.d/site-lisp/emacs-application-framework/")
+(require 'eaf)
+
+(require 'eaf-browser)
+(require 'eaf-file-manager)
 #+end_src
 
 * Startup Performance

@@ -4,9 +4,6 @@
         "workspaces": [],
         "folders": [
             {
-                "folderUri": "file:///home/charged/gl/freebot-matrix"
-            },
-            {
                 "folderUri": "file:///home/charged/Documents/test_directory"
             }
         ],
@@ -18,10 +15,10 @@
             "backupPath": "/home/charged/.config/VSCodium/Backups/9f25a17ce0d28d66aeb33680cde5c3ed",
             "uiState": {
                 "mode": 1,
-                "x": 13,
-                "y": 39,
-                "width": 1894,
-                "height": 1028
+                "x": 0,
+                "y": 0,
+                "width": 1920,
+                "height": 1080
             }
         },
         "openedWindows": []
@@ -462,7 +459,8 @@
                                 },
                                 {
                                     "id": "workbench.action.toggleSidebarVisibility",
-                                    "label": "&&Primary Side Bar"
+                                    "label": "&&Primary Side Bar",
+                                    "checked": true
                                 },
                                 {
                                     "id": "workbench.action.toggleAuxiliaryBar",
@@ -1618,7 +1616,7 @@
             "editorPartMinWidth": 220,
             "titleBarHeight": 0,
             "activityBarWidth": 48,
-            "sideBarWidth": 0,
+            "sideBarWidth": 207,
             "statusBarHeight": 22,
             "windowBorder": false
         }
