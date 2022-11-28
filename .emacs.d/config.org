@@ -80,6 +80,7 @@ Useful for debugging code.
                 shell-mode-hook
                 treemacs-mode-hook
                 neotree-mode-hook
+                ibuffer-mode-hook
                 eshell-mode-hook))
   (add-hook mode (lambda () (display-line-numbers-mode 0))))
 #+end_src
