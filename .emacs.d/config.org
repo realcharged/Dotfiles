@@ -23,7 +23,7 @@ Personal configuration file written by Charged for GNU Emacs.
 - [[#keybindings][Keybindings]]
 - [[#org-mode][Org mode]]
   - [[#org-bullets][Org bullets]]
-  - [[#fonts-1][Fonts]]
+  - [[#org-fonts][Org Fonts]]
   - [[#auto-toc][Auto TOC]]
   - [[#extras][Extras]]
 - [[#electric-pair][Electric pair]]
@@ -276,7 +276,7 @@ Better than astericks.
   (org-bullets-bullet-list '("◉" "○" "●" "○" "●" "○" "●")))
 #+end_src
 
-** Fonts
+** Org Fonts
 Bigger fonts for headers.
 #+begin_src elisp
 ;; Bigger next on subheadings
@@ -300,6 +300,13 @@ Bigger fonts for headers.
 (set-face-attribute 'org-checkbox nil  :inherit 'fixed-pitch)
 (set-face-attribute 'line-number nil :inherit 'fixed-pitch)
 (set-face-attribute 'line-number-current-line nil :inherit 'fixed-pitch)
+#+end_src
+
+*** Auto pitch mode
+This makes auto-enables variable-pitch-mode on org files.
+#+begin_src elisp
+(dolist (ah '(org-mode-hook))
+  (add-hook ah (lambda () (variable-pitch-mode 1))))
 #+end_src
 
 ** Auto TOC
