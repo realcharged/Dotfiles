@@ -35,6 +35,7 @@ Personal configuration file written by Charged for GNU Emacs.
 - [[#erc][ERC]]
 - [[#neotree][Neotree]]
 - [[#eaf][EAF]]
+- [[#ement][Ement]]
 - [[#startup-performance][Startup Performance]]
   - [[#garbage-collection][Garbage collection]]
   - [[#native-compile][Native Compile]]
@@ -241,6 +242,9 @@ Again, saving my pinky.
        "t t"   '(toggle-truncate-lines :which-key "Toggle truncate lines")
        "b k"   '(kill-current-buffer :which-key "Kill the current buffer.")
        "b i"   '(ibuffer :which-key "Open iBuffer")
+       "o T"   '(vterm :which-key "Open vterm")
+       "o b"   '(eaf-open-browser :which-key "Open EAF browser.")
+       "b m"   '(ibuffer-filter-by-mode :which-key "Open ibuffer by mode.")
        "."     '(find-file :which-key "Find file"))
 (nvmap :keymaps 'override :prefix "SPC"
        "m *"   '(org-ctrl-c-star :which-key "Org-ctrl-c-star")
@@ -428,6 +432,15 @@ VSCode-like file viewer on the left.
 
 (require 'eaf-browser)
 (require 'eaf-file-manager)
+(require 'eaf-music-player)
+(require 'eaf-markdown-previewer)
+;; (require 'eaf-pdf-viewer)
+#+end_src
+
+* Ement
+A Matrix client for Emacs!
+#+begin_src elisp
+;;(use-package ement)
 #+end_src
 
 * Startup Performance
