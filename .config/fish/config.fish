@@ -305,6 +305,10 @@ alias shell="echo $SHELL"
 alias show="clear && colourscript random"
 alias backup="cd ~/org/; git add .; commit \"Backup\"; git push; prevd"
 
+# YaCy
+alias startyacy="/home/charged/Downloads/keep/yacy_search_server/startYACY.sh"
+alias stopyacy="/home/charged/Downloads/keep/yacy_search_server/stopYACY.sh"
+
 # System
 alias sp="systemctl suspend"
 alias rb="sudo reboot"

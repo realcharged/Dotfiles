@@ -316,5 +316,5 @@ exec --no-startup-id xfce4-clipman
 exec_always /usr/bin/emacs --daemon
 
 # YaCy
-exec_always /home/charged/Downloads/keep/yacy_search_server/startYACY.sh
+# exec /home/charged/Downloads/keep/yacy_search_server/startYACY.sh
 #+END_SRC

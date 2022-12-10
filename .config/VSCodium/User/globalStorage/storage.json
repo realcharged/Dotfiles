@@ -4,21 +4,22 @@
         "workspaces": [],
         "folders": [
             {
-                "folderUri": "file:///home/charged/Documents/test_directory"
+                "folderUri": "file:///home/charged/Documents/websitetest"
             }
         ],
         "emptyWindows": []
     },
     "windowsState": {
         "lastActiveWindow": {
-            "folder": "file:///home/charged/Documents/test_directory",
-            "backupPath": "/home/charged/.config/VSCodium/Backups/9f25a17ce0d28d66aeb33680cde5c3ed",
+            "folder": "file:///home/charged/Documents/websitetest",
+            "backupPath": "/home/charged/.config/VSCodium/Backups/dbc6b8a69b4a60cfbf930962e89c1058",
             "uiState": {
-                "mode": 1,
+                "mode": 3,
+                "display": 0,
+                "width": 1904,
+                "height": 1043,
                 "x": 0,
-                "y": 0,
-                "width": 1920,
-                "height": 1080
+                "y": 29
             }
         },
         "openedWindows": []
@@ -61,10 +62,44 @@
                             "items": [
                                 {
                                     "id": "workbench.action.reopenClosedEditor",
-                                    "label": "&&Reopen Closed Editor"
+                                    "label": "&&Reopen Closed Editor",
+                                    "enabled": false
                                 },
                                 {
                                     "id": "vscode.menubar.separator"
+                                },
+                                {
+                                    "id": "openRecentFolder",
+                                    "uri": {
+                                        "$mid": 1,
+                                        "external": "file:///home/charged/Documents/websitetest",
+                                        "path": "/home/charged/Documents/websitetest",
+                                        "scheme": "file"
+                                    },
+                                    "enabled": true,
+                                    "label": "~/Documents/websitetest"
+                                },
+                                {
+                                    "id": "openRecentFolder",
+                                    "uri": {
+                                        "$mid": 1,
+                                        "external": "file:///home/charged/.config/dwm_redo",
+                                        "path": "/home/charged/.config/dwm_redo",
+                                        "scheme": "file"
+                                    },
+                                    "enabled": true,
+                                    "label": "~/.config/dwm_redo"
+                                },
+                                {
+                                    "id": "openRecentFolder",
+                                    "uri": {
+                                        "$mid": 1,
+                                        "external": "file:///home/charged/gl/cysinfo",
+                                        "path": "/home/charged/gl/cysinfo",
+                                        "scheme": "file"
+                                    },
+                                    "enabled": true,
+                                    "label": "~/gl/cysinfo"
                                 },
                                 {
                                     "id": "openRecentFolder",
@@ -440,7 +475,8 @@
                             "items": [
                                 {
                                     "id": "workbench.action.toggleFullScreen",
-                                    "label": "&&Full Screen"
+                                    "label": "&&Full Screen",
+                                    "checked": true
                                 },
                                 {
                                     "id": "workbench.action.toggleZenMode",
@@ -670,10 +706,6 @@
                         "label": "E&&xtensions"
                     },
                     {
-                        "id": "workbench.view.extension.test",
-                        "label": "T&&esting"
-                    },
-                    {
                         "id": "vscode.menubar.separator"
                     },
                     {
@@ -718,7 +750,8 @@
                     },
                     {
                         "id": "workbench.action.navigateToLastEditLocation",
-                        "label": "&&Last Edit Location"
+                        "label": "&&Last Edit Location",
+                        "enabled": false
                     },
                     {
                         "id": "vscode.menubar.separator"
@@ -1610,15 +1643,6 @@
             "sideBarBackground": "#21252b",
             "statusBarBackground": "#21252b",
             "statusBarNoFolderBackground": "#21252b"
-        },
-        "layoutInfo": {
-            "sideBarSide": "left",
-            "editorPartMinWidth": 220,
-            "titleBarHeight": 0,
-            "activityBarWidth": 48,
-            "sideBarWidth": 207,
-            "statusBarHeight": 22,
-            "windowBorder": false
         }
     }
 }
