@@ -320,7 +320,7 @@ alias clds="rm config.def.h.rej st.c.orig config.h"
 alias st="st -z 18"
 
 # Emacs aliases
-alias doom="~/.emacs.d/bin/doom"
+alias doom="~/.config/emacs/bin/doom"
 alias ecli="emacs -nw"
 
 # List
