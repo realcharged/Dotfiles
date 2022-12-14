@@ -34,8 +34,8 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-# start a terminal, change 'st -z 18' to the terminal of your choice
-bindsym $mod+Return exec st -z 18
+# start a terminal, change 'alacritty' to the terminal of your choice
+bindsym $mod+Return exec alacritty
 
 # Brightness Keys
 bindsym $mod+b+u exec brightnessctl set +10%
@@ -240,6 +240,9 @@ exec_always --no-startup-id autotiling
 # Notifications
 exec --no-startup-id dunst
 
+# Session
+exec --no-startup-id lxsession
+
 # Clipboard
 exec --no-startup-id xfce4-clipman
 
@@ -247,4 +250,4 @@ exec --no-startup-id xfce4-clipman
 exec_always /usr/bin/emacs --daemon
 
 # YaCy
-exec_always /home/charged/Downloads/keep/yacy_search_server/startYACY.sh
+# exec /home/charged/Downloads/keep/yacy_search_server/startYACY.sh

@@ -90,8 +90,8 @@ Modkey = Windows/Super key
 | Modkey + L             | Suspends and Locks device |
 | Modkey + Enter/Return  | Opens the set terminal.   |
 #+BEGIN_SRC bash
-# start a terminal, change 'st -z 18' to the terminal of your choice
-bindsym $mod+Return exec st -z 18
+# start a terminal, change 'alacritty' to the terminal of your choice
+bindsym $mod+Return exec alacritty
 
 # Brightness Keys
 bindsym $mod+b+u exec brightnessctl set +10%
@@ -308,6 +308,9 @@ exec_always --no-startup-id autotiling
 
 # Notifications
 exec --no-startup-id dunst
+
+# Session
+exec --no-startup-id lxsession
 
 # Clipboard
 exec --no-startup-id xfce4-clipman
