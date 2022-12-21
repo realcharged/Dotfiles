@@ -287,6 +287,9 @@ export ZDOTDIR="$HOME"/.config/zsh
 # CHDE REPO DIRECTORY
 set REPODIR "/home/charged/CHDE/chde-repo/x86_64/"
 
+# PATH
+export PATH="$HOME/.local/bin:$PATH"
+
 #####################################
 ########## CUSTOM STARTUPS ##########
 #####################################

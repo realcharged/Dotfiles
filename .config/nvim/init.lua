@@ -2,7 +2,7 @@
 --  / ___| | | |  / \  |  _ \ / ___| ____|  _ \   gitlab.com/charged1/
 -- | |   | |_| | / _ \ | |_) | |  _|  _| | | | |  guilded.gg/fts/
 -- | |___|  _  |/ ___ \|  _ <| |_| | |___| |_| |  dsc.gg/freetech/
---  \____|_| |_/_/   \_\_| \_\\____|_____|____/                                                                                                 ##
+--  \____|_| |_/_/   \_\_| \_\\____|_____|____/
 
 -- Welcome to Charged's Neovim config!
 -- This configuration file is based off the following.
@@ -125,15 +125,15 @@ end
 -- Zoom
 -- g.gui_font_default_size = 9
 o.guifont = "Jetbrains Mono"
-g.neovide_scale_factor = 1
+-- g.neovide_scale_factor = 1
 
 -- LUALINE
 require('lualine').setup {
   options = {
     icons_enabled = true,
     theme = 'auto',
-    component_separators = { left = '', right = ''},
-    section_separators = { left = '', right = ''},
+    component_separators = { left = '', right = ''},
+    section_separators = { left = '', right = ''},
     disabled_filetypes = {
       statusline = {},
       winbar = {},
@@ -175,6 +175,7 @@ map('n', '<leader>ff', '<CMD>Telescope find_files<CR>')
 map('n', '<leader>fb', '<CMD>Telescope file_browser<CR>')
 map('n', '<leader>fw', '<CMD>Telescope live_grep<CR>')
 map('n', '<leader>ht', '<CMD>Telescope colorscheme<CR>')
+map('n', '<leader>tn', '<CMD>NeoTreeShow<CR>')
 
 -- Dashboard
 local db = require('dashboard')

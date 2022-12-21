@@ -7,7 +7,7 @@
    '("835868dcd17131ba8b9619d14c67c127aa18b90a82438c8613586331129dda63" default))
  '(elfeed-feeds '("rss.art19.com/apology-line"))
  '(package-selected-packages
-   '(eaf ement transient quelpa-use-package use-package bind-key quelpa)))
+   '(corfu eaf ement transient quelpa-use-package use-package bind-key quelpa)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
